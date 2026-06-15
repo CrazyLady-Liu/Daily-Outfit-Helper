@@ -110,11 +110,7 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
     [loadingStates, isLoading, getLoadingText, startLoading, stopLoading, withLoading, anyLoading]
   );
 
-  return (
-    <LoadingContext.Provider value={value}>
-      {children}
-    </LoadingContext.Provider>
-  );
+  return React.createElement(LoadingContext.Provider, { value }, children);
 }
 
 export function useGlobalLoading(): LoadingContextValue {
