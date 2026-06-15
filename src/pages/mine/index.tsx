@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ScrollView, Button, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import Loading, { SceneLoading } from '@/components/Loading';
@@ -7,38 +7,6 @@ import { useGlobalLoading } from '@/hooks/useGlobalLoading';
 import { useAppStore } from '@/store/useAppStore';
 import { delay } from '@/utils';
 import styles from './index.module.scss';
-
-interface ArcCharStyle {
-  transform: string;
-  left: string;
-  top: string;
-}
-
-const getArcTextStyles = (
-  text: string,
-  radius: number,
-  startAngle: number,
-  angleStep: number,
-  offsetX: number = 0,
-  offsetY: number = 0,
-  rotateScale: number = 0.3
-): ArcCharStyle[] => {
-  const chars = text.split('');
-
-  return chars.map((_, index) => {
-    const angle = startAngle + index * angleStep;
-    const radian = (angle * Math.PI) / 180;
-    const x = Math.sin(radian) * radius + offsetX;
-    const y = -Math.cos(radian) * radius + offsetY;
-    const rotate = angle * rotateScale;
-
-    return {
-      transform: `rotate(${rotate}deg)`,
-      left: `${x}rpx`,
-      top: `${y}rpx`
-    };
-  });
-};
 
 const menuItems = [
   { icon: '📝', text: '我的收藏', badge: '' },
@@ -51,23 +19,6 @@ const menuItems = [
 const MinePage: React.FC = () => {
   const { withLoading } = useGlobalLoading();
   const { userInfo, outfitPhotos, scoreRecords } = useAppStore();
-
-  const nicknameArcStyles = useMemo(() => {
-    if (!userInfo?.nickname) return [];
-    const text = userInfo.nickname;
-    const radius = 320;
-    const startAngle = 10;
-    const angleStep = 5.5;
-    return getArcTextStyles(text, radius, startAngle, angleStep, 55, 318, 0.35);
-  }, [userInfo?.nickname]);
-
-  const taglineArcStyles = useMemo(() => {
-    const tagline = '每天都要美美哒 ✨';
-    const radius = 300;
-    const startAngle = 13;
-    const angleStep = 2.8;
-    return getArcTextStyles(tagline, radius, startAngle, angleStep, 60, 305, 0.3);
-  }, []);
 
   const loadUserInfo = async () => {
     await delay(400);
@@ -111,29 +62,9 @@ const MinePage: React.FC = () => {
                 mode='aspectFill'
                 onError={(e) => console.error('[MinePage] Avatar load error:', e)}
               />
-              <View className={styles.arcTextWrapper}>
-                <View className={styles.arcNickname}>
-                  {userInfo.nickname.split('').map((char, index) => (
-                    <Text
-                      key={`nick-${index}`}
-                      className={styles.arcNicknameChar}
-                      style={nicknameArcStyles[index] || {}}
-                    >
-                      {char}
-                    </Text>
-                  ))}
-                </View>
-                <View className={styles.arcTagline}>
-                  {'每天都要美美哒 ✨'.split('').map((char, index) => (
-                    <Text
-                      key={`tag-${index}`}
-                      className={styles.arcTaglineChar}
-                      style={taglineArcStyles[index] || {}}
-                    >
-                      {char}
-                    </Text>
-                  ))}
-                </View>
+              <View className={styles.profileTextGroup}>
+                <Text className={styles.nicknameCol}>{userInfo.nickname}</Text>
+                <Text className={styles.taglineCol}>每天都要美美哒</Text>
               </View>
               <Button className={styles.editBtn} onClick={handleEditProfile}>
                 编辑

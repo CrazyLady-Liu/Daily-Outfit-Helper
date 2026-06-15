@@ -13,9 +13,7 @@
 
 .profileInfo {
   display: flex;
-  align-items: flex-start;
-  position: relative;
-  padding-top: $spacing-sm;
+  align-items: center;
 }
 
 .avatar {
@@ -23,58 +21,33 @@
   height: 140rpx;
   border-radius: 50%;
   border: 6rpx solid rgba(255, 255, 255, 0.4);
-  margin-right: 0;
+  margin-right: $spacing-sm;
   background: $color-bg-card;
   flex-shrink: 0;
-  z-index: 2;
 }
 
-.arcTextWrapper {
-  position: relative;
-  width: 320rpx;
-  height: 160rpx;
-  margin-left: -10rpx;
-  flex-shrink: 0;
-  overflow: visible;
+.profileTextGroup {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-right: auto;
 }
 
-.arcNickname {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  overflow: visible;
-}
-
-.arcNicknameChar {
-  position: absolute;
-  font-size: 40rpx;
+.nicknameCol {
+  writing-mode: vertical-rl;
+  font-size: 38rpx;
   font-weight: $font-weight-bold;
-  color: $color-text-white;
-  transform-origin: center center;
-  white-space: nowrap;
-  line-height: 1;
-  display: block;
+  color: #FFFFFF;
+  letter-spacing: 4rpx;
+  line-height: 1.4;
 }
 
-.arcTagline {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  overflow: visible;
-}
-
-.arcTaglineChar {
-  position: absolute;
+.taglineCol {
+  writing-mode: vertical-rl;
   font-size: 22rpx;
-  color: rgba(255, 255, 255, 0.85);
-  transform-origin: center center;
-  white-space: nowrap;
-  line-height: 1;
-  display: block;
+  color: rgba(255, 220, 230, 0.7);
+  letter-spacing: 2rpx;
+  line-height: 1.5;
 }
 
 .editBtn {
