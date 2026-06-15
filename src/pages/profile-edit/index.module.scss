@@ -1,0 +1,163 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: 120rpx;
+}
+
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xl * 1.5 $page-padding;
+  background: $color-bg-card;
+  margin-bottom: $spacing-lg;
+}
+
+.avatarTitle {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-md;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: $color-bg-light;
+  border: 6rpx solid $color-primary-light;
+}
+
+.avatarEditIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #fff;
+  border: 4rpx solid #fff;
+}
+
+.formSection {
+  background: $color-bg-card;
+  margin: 0 $page-padding $spacing-lg;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.formItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 2rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.formLabel {
+  width: 160rpx;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  flex-shrink: 0;
+}
+
+.formInput {
+  flex: 1;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  text-align: right;
+}
+
+.formValue {
+  flex: 1;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  text-align: right;
+}
+
+.formArrow {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  margin-left: $spacing-xs;
+}
+
+.styleSection {
+  background: $color-bg-card;
+  margin: 0 $page-padding $spacing-lg;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.styleTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.styleTag {
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-round;
+  font-size: $font-size-sm;
+  border: 2rpx solid $color-divider;
+  color: $color-text-secondary;
+  transition: all $transition-base;
+
+  &.active {
+    border-color: $color-primary;
+    background: $color-primary-bg;
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.saveBtnWrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+
+.saveBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  background: $color-primary;
+  color: #fff;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-button;
+  transition: all $transition-base;
+
+  &:active {
+    background: $color-primary-dark;
+  }
+
+  &:disabled {
+    background: $color-text-disabled;
+    color: $color-text-tertiary;
+  }
+}

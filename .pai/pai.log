@@ -678,3 +678,78 @@
 [20:03:57.428] [Preview Server] Frontend disconnected, clients size = 1
 [20:03:57.882] [Preview Server] Frontend connected, clients size = 1
 [20:03:57.882] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[20:04:45.422] [Preview Server] Frontend disconnected, clients size = 1
+[20:04:46.326] [Preview Server] Frontend connected, clients size = 1
+[20:04:46.327] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[20:04:53.647] [Preview Server] Frontend disconnected, clients size = 1
+[20:04:59.804] [Preview Server] Frontend connected, clients size = 1
+[20:04:59.805] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[20:15:04.337] File change detected. Updating...
+[20:15:04.348] readProjectFiles, Found 60 files to read.
+[20:15:04.374] Files read. Count: 60
+[20:15:04.374] Calling pai.updateCloudDev...
+[20:15:04.375] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:15:04.714] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525707074}
+[20:15:04.714] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525707074}
+[20:15:04.714] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:15:04.715] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:15:04.715] Update success (pai.updateCloudDev returned)
+[20:15:04.819] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781525707179}
+[20:15:05.711] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 8:15:08 PM\n\n","timestamp":1781525708071}
+[20:15:11.222] File change detected. Updating...
+[20:15:11.235] readProjectFiles, Found 60 files to read.
+[20:15:11.250] Files read. Count: 60
+[20:15:11.250] Calling pai.updateCloudDev...
+[20:15:11.251] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:15:11.491] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525713851}
+[20:15:11.491] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525713851}
+[20:15:11.491] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:15:11.491] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:15:11.492] Update success (pai.updateCloudDev returned)
+[20:15:11.538] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781525713898}
+[20:15:12.349] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 8:15:14 PM\n\n","timestamp":1781525714710}
+[20:15:19.517] File change detected. Updating...
+[20:15:19.535] readProjectFiles, Found 60 files to read.
+[20:15:19.609] Files read. Count: 60
+[20:15:19.610] Calling pai.updateCloudDev...
+[20:15:19.611] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:15:20.490] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525722851}
+[20:15:20.491] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525722851}
+[20:15:20.491] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:15:20.491] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:15:20.492] Update success (pai.updateCloudDev returned)
+[20:15:20.717] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781525723077}
+[20:15:21.318] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 8:15:23 PM\n\n","timestamp":1781525723678}
+[20:15:35.519] File change detected. Updating...
+[20:15:35.527] readProjectFiles, Found 60 files to read.
+[20:15:35.537] Files read. Count: 60
+[20:15:35.538] Calling pai.updateCloudDev...
+[20:15:35.538] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:15:37.157] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525739517}
+[20:15:37.157] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781525739517}
+[20:15:37.157] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:15:37.158] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:15:37.158] Update success (pai.updateCloudDev returned)
+[20:15:37.198] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781525739557}
+[20:15:38.103] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 8:15:40 PM\n\n","timestamp":1781525740463}
+[20:17:38.767] [Preview Server] Frontend disconnected, clients size = 1
+[20:18:52.117] [Preview Server] Frontend connected, clients size = 1
+[20:18:52.118] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[20:19:54.391] [Preview Server] Frontend connected, clients size = 2
+[20:19:54.392] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}

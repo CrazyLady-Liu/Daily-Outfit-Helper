@@ -10,6 +10,8 @@ export type LoadingScene =
   | 'tag-list'
   | 'tag-create'
   | 'user-info'
+  | 'profile-edit'
+  | 'profile-save'
   | 'global';
 
 export const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
@@ -22,6 +24,8 @@ export const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
   'tag-list': '加载标签...',
   'tag-create': '创建标签中...',
   'user-info': '加载用户信息...',
+  'profile-edit': '正在进入编辑页...',
+  'profile-save': '正在保存...',
   global: '加载中...'
 };
 
@@ -47,6 +51,8 @@ const createInitialStates = (): Record<LoadingScene, boolean> => ({
   'tag-list': false,
   'tag-create': false,
   'user-info': false,
+  'profile-edit': false,
+  'profile-save': false,
   global: false
 } as Record<LoadingScene, boolean>);
 

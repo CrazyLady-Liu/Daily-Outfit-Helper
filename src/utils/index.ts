@@ -1,3 +1,5 @@
+import Taro from '@tarojs/taro';
+
 export const delay = (ms: number): Promise<void> => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
@@ -19,4 +21,18 @@ export const getScoreLevel = (score: number): { text: string; color: string } =>
 
 export const generateId = (): string => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
+};
+
+export const trackEvent = (eventName: string, params?: Record<string, any>): void => {
+  console.log(`[Track] ${eventName}`, params || '');
+};
+
+export const checkNetwork = async (): Promise<boolean> => {
+  try {
+    const res = await Taro.getNetworkType();
+    return res.networkType !== 'none';
+  } catch (error) {
+    console.error('[Utils] Check network error:', error);
+    return false;
+  }
 };

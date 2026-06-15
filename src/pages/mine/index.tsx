@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { View, Text, ScrollView, Button, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import Loading, { SceneLoading } from '@/components/Loading';
+import classnames from 'classnames';
+import { SceneLoading } from '@/components/Loading';
 import EmptyState from '@/components/EmptyState';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
 import { useAppStore } from '@/store/useAppStore';
-import { delay } from '@/utils';
+import { delay, trackEvent, checkNetwork } from '@/utils';
 import styles from './index.module.scss';
 
 const menuItems = [
@@ -17,7 +18,7 @@ const menuItems = [
 ];
 
 const MinePage: React.FC = () => {
-  const { withLoading } = useGlobalLoading();
+  const { withLoading, isLoading } = useGlobalLoading();
   const { userInfo, outfitPhotos, scoreRecords } = useAppStore();
 
   const loadUserInfo = async () => {
@@ -35,9 +36,28 @@ const MinePage: React.FC = () => {
     loadData();
   }, []);
 
-  const handleEditProfile = () => {
-    console.log('[MinePage] Edit profile');
-    Taro.showToast({ title: '功能开发中', icon: 'none' });
+  const handleEditProfile = async () => {
+    trackEvent('click_mine_edit');
+
+    if (isLoading('profile-edit')) {
+      return;
+    }
+
+    const hasNetwork = await checkNetwork();
+    if (!hasNetwork) {
+      Taro.showToast({ title: '网络异常，请检查网络后重试', icon: 'none' });
+      return;
+    }
+
+    try {
+      await withLoading('profile-edit', async () => {
+        await delay(300);
+      });
+      Taro.navigateTo({ url: '/pages/profile-edit/index' });
+    } catch (error) {
+      console.error('[MinePage] Navigate to edit page failed:', error);
+      Taro.showToast({ title: '进入编辑页失败，请重试', icon: 'none' });
+    }
   };
 
   const handleMenuClick = (item: typeof menuItems[0]) => {
@@ -66,8 +86,19 @@ const MinePage: React.FC = () => {
                 <Text className={styles.nicknameCol}>{userInfo.nickname}</Text>
                 <Text className={styles.taglineCol}>每天都要美美哒</Text>
               </View>
-              <Button className={styles.editBtn} onClick={handleEditProfile}>
-                编辑
+              <Button
+                className={classnames(styles.editBtn, isLoading('profile-edit') && styles.editBtnDisabled)}
+                onClick={handleEditProfile}
+                disabled={isLoading('profile-edit')}
+              >
+                {isLoading('profile-edit') ? (
+                  <View className={styles.editBtnLoading}>
+                    <View className={styles.editBtnSpinner} />
+                    <Text>加载中</Text>
+                  </View>
+                ) : (
+                  '编辑'
+                )}
               </Button>
             </View>
           </View>

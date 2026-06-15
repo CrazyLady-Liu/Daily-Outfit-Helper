@@ -7,7 +7,8 @@ export default defineAppConfig({
     'pages/mine/index',
     'pages/recommend-detail/index',
     'pages/outfit-detail/index',
-    'pages/score-result/index'
+    'pages/score-result/index',
+    'pages/profile-edit/index'
   ],
   window: {
     backgroundTextStyle: 'light',
