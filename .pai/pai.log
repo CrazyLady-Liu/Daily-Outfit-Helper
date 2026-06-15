@@ -12,3 +12,13 @@
 [10:27:13.026] [PAI SDK] Received event: log {"content":"👽 Taro v4.1.9\n\n","timestamp":1781490434645}
 [10:27:14.239] [PAI SDK] Received event: log {"content":"Tips:\n1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。\n\n\n","timestamp":1781490435857}
 [10:27:15.338] [PAI SDK] Received event: log {"content":"- 即将开始启动编译，请稍等~\n","timestamp":1781490436958}
+[10:27:29.671] [Preview Server] Frontend connected, clients size = 1
+[10:27:30.235] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 10:27:31 AM\n\n","timestamp":1781490451847}
+[10:27:30.236] [PAI SDK] cloudServer.start response: {
+  "status": "running",
+  "msg": "Cloud Server started successfully.",
+  "hash": "pai-preview-trae-32580ea2"
+}
+[10:29:29.229] [Preview Server] Frontend disconnected, clients size = 1
+[10:29:29.944] [Preview Server] Frontend connected, clients size = 1
+[10:29:29.945] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nm60029l4ha50oao7g-sandbox&hash=pai-preview-trae-32580ea2","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-32580ea2&uuid=db3f3032-e29e-4a69-a35b-8dddd7989767","status":"running","msg":"Cloud Server started successfully.","framework":"taro"}}

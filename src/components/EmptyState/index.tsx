@@ -1,31 +1,140 @@
 import React from 'react';
 import { View, Text, Button } from '@tarojs/components';
+import classnames from 'classnames';
 import styles from './index.module.scss';
 
-interface EmptyStateProps {
-  icon?: string;
+export type EmptyStateType =
+  | 'outfit-empty'
+  | 'outfit-filter'
+  | 'score-empty'
+  | 'weather-empty'
+  | 'tag-empty'
+  | 'network-error'
+  | 'custom';
+
+interface PresetConfig {
+  icon: string;
   title: string;
+  description: string;
+  primaryButton?: { text: string };
+  secondaryButton?: { text: string };
+  tips?: string[];
+}
+
+const PRESET_CONFIGS: Record<Exclude<EmptyStateType, 'custom'>, PresetConfig> = {
+  'outfit-empty': {
+    icon: '📸',
+    title: '还没有穿搭记录',
+    description: '记录你的每一次美丽穿搭，打造专属穿搭日记~',
+    primaryButton: { text: '去上传穿搭' },
+    tips: [
+      '✨ 拍照记录今日穿搭',
+      '🏷️ 添加标签方便查找',
+      '📊 让AI为你的搭配打分'
+    ]
+  },
+  'outfit-filter': {
+    icon: '🔍',
+    title: '该分类下暂无穿搭',
+    description: '试试其他标签，或者上传新的穿搭吧~',
+    primaryButton: { text: '上传新穿搭' },
+    secondaryButton: { text: '查看全部穿搭' }
+  },
+  'score-empty': {
+    icon: '📊',
+    title: '还没有打分记录',
+    description: '上传穿搭照片，AI多维度分析你的搭配',
+    primaryButton: { text: '立即去打分' },
+    tips: [
+      '🎨 色彩搭配分析',
+      '👗 款式协调评估',
+      '💡 专业搭配建议'
+    ]
+  },
+  'weather-empty': {
+    icon: '🌤️',
+    title: '暂时无法获取天气',
+    description: '请检查网络连接，或尝试刷新页面获取最新天气',
+    primaryButton: { text: '重新获取天气' },
+    secondaryButton: { text: '浏览全部推荐' }
+  },
+  'tag-empty': {
+    icon: '🏷️',
+    title: '暂无风格标签',
+    description: '创建属于你的风格标签，更好管理穿搭',
+    primaryButton: { text: '创建标签' }
+  },
+  'network-error': {
+    icon: '📡',
+    title: '网络连接异常',
+    description: '请检查网络设置后重试',
+    primaryButton: { text: '重新加载' }
+  }
+};
+
+interface EmptyStateProps {
+  type?: EmptyStateType;
+  icon?: string;
+  title?: string;
   description?: string;
-  buttonText?: string;
-  onButtonClick?: () => void;
+  primaryButtonText?: string;
+  onPrimaryButtonClick?: () => void;
+  secondaryButtonText?: string;
+  onSecondaryButtonClick?: () => void;
+  tips?: string[];
+  compact?: boolean;
 }
 
 const EmptyState: React.FC<EmptyStateProps> = ({
-  icon = '📷',
+  type = 'custom',
+  icon,
   title,
   description,
-  buttonText,
-  onButtonClick
+  primaryButtonText,
+  onPrimaryButtonClick,
+  secondaryButtonText,
+  onSecondaryButtonClick,
+  tips,
+  compact = false
 }) => {
+  const preset = type !== 'custom' ? PRESET_CONFIGS[type] : null;
+
+  const finalIcon = icon || preset?.icon || '📷';
+  const finalTitle = title || preset?.title || '暂无数据';
+  const finalDescription = description || preset?.description || '';
+  const finalPrimaryText = primaryButtonText || preset?.primaryButton?.text;
+  const finalSecondaryText = secondaryButtonText || preset?.secondaryButton?.text;
+  const finalTips = tips || preset?.tips;
+
   return (
-    <View className={styles.emptyContainer}>
-      <Text className={styles.icon}>{icon}</Text>
-      <Text className={styles.title}>{title}</Text>
-      {description && <Text className={styles.description}>{description}</Text>}
-      {buttonText && (
-        <Button className={styles.button} onClick={onButtonClick}>
-          {buttonText}
-        </Button>
+    <View className={classnames(styles.emptyContainer, compact && styles.compact)}>
+      <View className={styles.iconWrapper}>
+        <Text className={styles.icon}>{finalIcon}</Text>
+      </View>
+      <Text className={styles.title}>{finalTitle}</Text>
+      {finalDescription && (
+        <Text className={styles.description}>{finalDescription}</Text>
+      )}
+      <View className={styles.buttonGroup}>
+        {finalPrimaryText && (
+          <Button className={styles.button} onClick={onPrimaryButtonClick}>
+            {finalPrimaryText}
+          </Button>
+        )}
+        {finalSecondaryText && (
+          <Button className={styles.secondaryButton} onClick={onSecondaryButtonClick}>
+            {finalSecondaryText}
+          </Button>
+        )}
+      </View>
+      {finalTips && finalTips.length > 0 && (
+        <View className={styles.tipList}>
+          {finalTips.map((tip, index) => (
+            <View className={styles.tipItem} key={index}>
+              <Text className={styles.tipText}>{tip}</Text>
+            </View>
+          ))}
+        </View>
       )}
     </View>
   );

@@ -1,53 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import Loading from '@/components/Loading';
+import Loading, { SceneLoading } from '@/components/Loading';
 import EmptyState from '@/components/EmptyState';
 import WeatherCard from '@/components/WeatherCard';
 import OutfitCard from '@/components/OutfitCard';
-import { WeatherData, OutfitRecommend, LoadingState } from '@/types';
+import { useGlobalLoading } from '@/hooks/useGlobalLoading';
+import { WeatherData, OutfitRecommend } from '@/types';
 import { mockWeather } from '@/data/weather';
 import { mockRecommendations } from '@/data/outfits';
 import { delay } from '@/utils';
 import styles from './index.module.scss';
 
 const HomePage: React.FC = () => {
-  const [weatherLoading, setWeatherLoading] = useState<LoadingState>('loading');
-  const [recommendLoading, setRecommendLoading] = useState<LoadingState>('loading');
+  const { withLoading, isLoading } = useGlobalLoading();
   const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [weatherError, setWeatherError] = useState(false);
   const [recommendations, setRecommendations] = useState<OutfitRecommend[]>([]);
+  const [recommendError, setRecommendError] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const loadData = async () => {
-    setWeatherLoading('loading');
-    setRecommendLoading('loading');
-    
-    console.log('[HomePage] Loading weather and recommendations...');
-    
+  const loadWeather = async () => {
+    setWeatherError(false);
+    await delay(800);
+    setWeather(mockWeather);
+  };
+
+  const loadRecommendations = async () => {
+    setRecommendError(false);
+    await delay(500);
+    setRecommendations(mockRecommendations);
+  };
+
+  const loadAllData = async () => {
+    console.log('[HomePage] Loading all data via global Loading...');
     try {
-      await delay(800);
-      setWeather(mockWeather);
-      setWeatherLoading('success');
-      
-      await delay(500);
-      setRecommendations(mockRecommendations);
-      setRecommendLoading('success');
+      await Promise.all([
+        withLoading('weather', loadWeather).catch((e) => {
+          console.error('[HomePage] Weather load failed:', e);
+          setWeatherError(true);
+        }),
+        withLoading('recommend', loadRecommendations).catch((e) => {
+          console.error('[HomePage] Recommendations load failed:', e);
+          setRecommendError(true);
+        })
+      ]);
     } catch (error) {
-      console.error('[HomePage] Load data error:', error);
-      setWeatherLoading('error');
-      setRecommendLoading('error');
+      console.error('[HomePage] Critical load error:', error);
     }
   };
 
   useEffect(() => {
-    loadData();
+    loadAllData();
   }, []);
 
   const onRefresh = async () => {
     console.log('[HomePage] Pull down refresh');
+    setRefreshing(true);
     Taro.showNavigationBarLoading();
-    await loadData();
+    await loadAllData();
     Taro.hideNavigationBarLoading();
     Taro.stopPullDownRefresh();
+    setRefreshing(false);
   };
 
   useEffect(() => {
@@ -62,13 +76,23 @@ const HomePage: React.FC = () => {
     Taro.navigateTo({ url: '/pages/recommend-detail/index' });
   };
 
+  const handleReloadWeather = async () => {
+    console.log('[HomePage] Manual reload weather');
+    await withLoading('weather', loadWeather).catch(() => setWeatherError(true));
+  };
+
+  const handleBrowseRecommend = () => {
+    console.log('[HomePage] Browse all recommendations');
+    Taro.showToast({ title: '正在加载全部推荐', icon: 'none' });
+  };
+
   return (
     <ScrollView
       className={styles.page}
       scrollY
       onScrollToUpper={onRefresh}
       refresherEnabled
-      refresherTriggered={weatherLoading === 'loading' || recommendLoading === 'loading'}
+      refresherTriggered={refreshing || isLoading('weather') || isLoading('recommend')}
     >
       <View className={styles.header}>
         <Text className={styles.greeting}>Hi，今天穿什么？</Text>
@@ -76,19 +100,18 @@ const HomePage: React.FC = () => {
       </View>
 
       <View className={styles.section}>
-        {weatherLoading === 'loading' ? (
-          <Loading text='正在获取天气信息...' />
-        ) : weatherLoading === 'error' || !weather ? (
-          <EmptyState
-            icon='🌤️'
-            title='暂无天气数据'
-            description='请检查网络连接后重试'
-            buttonText='重新加载'
-            onButtonClick={loadData}
-          />
-        ) : (
-          <WeatherCard weather={weather} />
-        )}
+        <SceneLoading scene='weather' variant='default'>
+          {weatherError || !weather ? (
+            <EmptyState
+              type='weather-empty'
+              compact
+              onPrimaryButtonClick={handleReloadWeather}
+              onSecondaryButtonClick={handleBrowseRecommend}
+            />
+          ) : (
+            <WeatherCard weather={weather} />
+          )}
+        </SceneLoading>
       </View>
 
       <View className={styles.tipCard}>
@@ -96,7 +119,9 @@ const HomePage: React.FC = () => {
         <View className={styles.tipContent}>
           <Text className={styles.tipTitle}>今日穿搭小贴士</Text>
           <Text className={styles.tipDesc}>
-            {weather ? `${weather.temperature}°C ${weather.weather}，建议穿着轻薄透气的衣物，别忘了防晒哦~` : '获取天气信息后查看穿搭建议'}
+            {weather
+              ? `${weather.temperature}°C ${weather.weather}，建议穿着轻薄透气的衣物，别忘了防晒哦~`
+              : '获取天气信息后查看穿搭建议'}
           </Text>
         </View>
       </View>
@@ -107,23 +132,26 @@ const HomePage: React.FC = () => {
           <Text className={styles.sectionMore}>查看更多 →</Text>
         </View>
 
-        {recommendLoading === 'loading' ? (
-          <Loading text='正在生成穿搭推荐...' />
-        ) : recommendations.length === 0 ? (
-          <EmptyState
-            icon='👗'
-            title='暂无穿搭推荐'
-            description='稍后再来看看吧'
-          />
-        ) : (
-          <View className={styles.recommendGrid}>
-            {recommendations.map((item) => (
-            <View className={styles.recommendItem} key={item.id}>
-              <OutfitCard data={item} type='recommend' onClick={() => handleCardClick(item)} />
+        <SceneLoading scene='recommend' variant='default'>
+          {recommendError || recommendations.length === 0 ? (
+            <EmptyState
+              icon='👗'
+              title='暂无穿搭推荐'
+              description='AI正在为你挑选合适的穿搭，稍后再来看看吧~'
+              primaryButtonText='刷新推荐'
+              onPrimaryButtonClick={loadAllData}
+              compact
+            />
+          ) : (
+            <View className={styles.recommendGrid}>
+              {recommendations.map((item) => (
+                <View className={styles.recommendItem} key={item.id}>
+                  <OutfitCard data={item} type='recommend' onClick={() => handleCardClick(item)} />
+                </View>
+              ))}
             </View>
-          ))}
-          </View>
-        )}
+          )}
+        </SceneLoading>
       </View>
     </ScrollView>
   );
