@@ -55,18 +55,18 @@ const MinePage: React.FC = () => {
   const nicknameArcStyles = useMemo(() => {
     if (!userInfo?.nickname) return [];
     const text = userInfo.nickname;
-    const radius = 280;
-    const startAngle = -14;
-    const angleStep = 5;
-    return getArcTextStyles(text, radius, startAngle, angleStep, 70, 0, 0.4);
+    const radius = 320;
+    const startAngle = 10;
+    const angleStep = 5.5;
+    return getArcTextStyles(text, radius, startAngle, angleStep, 55, 318, 0.35);
   }, [userInfo?.nickname]);
 
   const taglineArcStyles = useMemo(() => {
     const tagline = '每天都要美美哒 ✨';
-    const radius = 260;
-    const startAngle = -10;
-    const angleStep = 3;
-    return getArcTextStyles(tagline, radius, startAngle, angleStep, 78, 52, 0.35);
+    const radius = 300;
+    const startAngle = 13;
+    const angleStep = 2.8;
+    return getArcTextStyles(tagline, radius, startAngle, angleStep, 60, 305, 0.3);
   }, []);
 
   const loadUserInfo = async () => {

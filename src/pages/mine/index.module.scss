@@ -31,11 +31,11 @@
 
 .arcTextWrapper {
   position: relative;
-  width: 300rpx;
+  width: 320rpx;
   height: 160rpx;
-  margin-left: -15rpx;
+  margin-left: -10rpx;
   flex-shrink: 0;
-  margin-top: 10rpx;
+  overflow: visible;
 }
 
 .arcNickname {
@@ -44,6 +44,7 @@
   top: 0;
   width: 0;
   height: 0;
+  overflow: visible;
 }
 
 .arcNicknameChar {
@@ -54,6 +55,7 @@
   transform-origin: center center;
   white-space: nowrap;
   line-height: 1;
+  display: block;
 }
 
 .arcTagline {
@@ -62,6 +64,7 @@
   top: 0;
   width: 0;
   height: 0;
+  overflow: visible;
 }
 
 .arcTaglineChar {
@@ -71,6 +74,7 @@
   transform-origin: center center;
   white-space: nowrap;
   line-height: 1;
+  display: block;
 }
 
 .editBtn {
