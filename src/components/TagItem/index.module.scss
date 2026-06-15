@@ -1,0 +1,62 @@
+@use '@/styles/variables.scss' as *;
+
+.tagItem {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  box-shadow: $shadow-card;
+  margin-right: $spacing-sm;
+  margin-bottom: $spacing-sm;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.active {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  box-shadow: 0 4rpx 16rpx rgba(255, 143, 163, 0.3);
+}
+
+.colorDot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-right: $spacing-xs;
+}
+
+.tagName {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.active .tagName {
+  color: $color-text-white;
+}
+
+.tagCount {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-left: $spacing-xs;
+}
+
+.active .tagCount {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.deleteBtn {
+  margin-left: $spacing-xs;
+  padding: 0 $spacing-xs;
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  line-height: 1;
+}
+
+.active .deleteBtn {
+  color: $color-text-white;
+}

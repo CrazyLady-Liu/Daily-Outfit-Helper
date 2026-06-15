@@ -1,0 +1,108 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  color: $color-text-white;
+  box-shadow: 0 8rpx 24rpx rgba(255, 143, 163, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.city {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.weatherIcon {
+  font-size: 48rpx;
+}
+
+.mainTemp {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: $spacing-md;
+}
+
+.tempValue {
+  font-size: 96rpx;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.tempUnit {
+  font-size: $font-size-xl;
+  margin-top: 8rpx;
+  margin-left: 4rpx;
+}
+
+.weatherDesc {
+  font-size: $font-size-md;
+  opacity: 0.9;
+  margin-bottom: $spacing-lg;
+}
+
+.details {
+  display: flex;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  font-size: $font-size-sm;
+  opacity: 0.9;
+}
+
+.detailIcon {
+  margin-right: $spacing-xs;
+}
+
+.divider {
+  height: 2rpx;
+  background: rgba(255, 255, 255, 0.2);
+  margin: $spacing-lg 0;
+}
+
+.weekList {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-xs;
+}
+
+.weekItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-sm 0;
+  border-radius: $radius-sm;
+  transition: all $transition-base;
+
+  &:active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.weekDay {
+  font-size: $font-size-xs;
+  opacity: 0.8;
+  margin-bottom: 4rpx;
+}
+
+.weekIcon {
+  font-size: 32rpx;
+  margin-bottom: 4rpx;
+}
+
+.weekTemp {
+  font-size: $font-size-xs;
+  opacity: 0.9;
+}
