@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, Button } from '@tarojs/components';
 import classnames from 'classnames';
 import styles from './index.module.scss';
 
-export type EmptyStateType =
+export type EmptyStatePreset =
   | 'outfit-empty'
   | 'outfit-filter'
   | 'score-empty'
@@ -21,7 +21,7 @@ interface PresetConfig {
   tips?: string[];
 }
 
-const PRESET_CONFIGS: Record<Exclude<EmptyStateType, 'custom'>, PresetConfig> = {
+const PRESET_CONFIG_MAP: Record<Exclude<EmptyStatePreset, 'custom'>, PresetConfig> = {
   'outfit-empty': {
     icon: '📸',
     title: '还没有穿搭记录',
@@ -73,7 +73,7 @@ const PRESET_CONFIGS: Record<Exclude<EmptyStateType, 'custom'>, PresetConfig> = 
 };
 
 interface EmptyStateProps {
-  type?: EmptyStateType;
+  type?: EmptyStatePreset;
   icon?: string;
   title?: string;
   description?: string;
@@ -85,7 +85,7 @@ interface EmptyStateProps {
   compact?: boolean;
 }
 
-const EmptyState: React.FC<EmptyStateProps> = ({
+function EmptyStateShell({
   type = 'custom',
   icon,
   title,
@@ -96,8 +96,10 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   onSecondaryButtonClick,
   tips,
   compact = false
-}) => {
-  const preset = type !== 'custom' ? PRESET_CONFIGS[type] : null;
+}: EmptyStateProps) {
+  const preset = useMemo(() => {
+    return type !== 'custom' ? PRESET_CONFIG_MAP[type] : null;
+  }, [type]);
 
   const finalIcon = icon || preset?.icon || '📷';
   const finalTitle = title || preset?.title || '暂无数据';
@@ -138,6 +140,6 @@ const EmptyState: React.FC<EmptyStateProps> = ({
       )}
     </View>
   );
-};
+}
 
-export default EmptyState;
+export default EmptyStateShell;

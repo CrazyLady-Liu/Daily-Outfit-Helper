@@ -1,24 +1,74 @@
-[10:27:09.926] Server listening on port 55524, PID 31556
-[10:27:09.993] readProjectFiles, Found 57 files to read.
-[10:27:10.087] Starting PAI Cloud Dev...
-[10:27:12.133] [PAI SDK] createCloudSession response: {
+[16:12:58.602] Try reusing port from lock file: 55524
+[16:12:58.694] Server listening on port 55524, PID 11112
+[16:12:58.715] readProjectFiles, Found 58 files to read.
+[16:12:58.783] Starting PAI Cloud Dev...
+[16:12:59.463] [PAI SDK] createCloudSession response: {
   "code": 0,
   "msg": "success",
-  "sandboxId": "vefaas-f0vkicge-pyw70jixna-d8nm60029l4ha50oao7g-sandbox",
+  "sandboxId": "vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox",
   "endpoint": "https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com"
 }
-[10:27:12.244] [PAI SDK] cloudServer.start called, appId: pai-preview-trae-32580ea2
-[10:27:12.695] [PAI SDK] Received event: log {"content":"\n> taro_template@1.0.0 dev:h5\n> npm run build:h5 -- --watch\n\n\n> taro_template@1.0.0 build:h5\n> taro build --type h5 --watch\n\n","timestamp":1781490434312}
-[10:27:13.026] [PAI SDK] Received event: log {"content":"👽 Taro v4.1.9\n\n","timestamp":1781490434645}
-[10:27:14.239] [PAI SDK] Received event: log {"content":"Tips:\n1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。\n\n\n","timestamp":1781490435857}
-[10:27:15.338] [PAI SDK] Received event: log {"content":"- 即将开始启动编译，请稍等~\n","timestamp":1781490436958}
-[10:27:29.671] [Preview Server] Frontend connected, clients size = 1
-[10:27:30.235] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 10:27:31 AM\n\n","timestamp":1781490451847}
-[10:27:30.236] [PAI SDK] cloudServer.start response: {
+[16:12:59.603] [PAI SDK] cloudServer.start called, appId: pai-preview-trae-7e310d2d
+[16:13:00.044] [PAI SDK] Received event: log {"content":"\n> taro_template@1.0.0 dev:h5\n> npm run build:h5 -- --watch\n\n\n> taro_template@1.0.0 build:h5\n> taro build --type h5 --watch\n\n","timestamp":1781511182315}
+[16:13:00.315] [PAI SDK] Received event: log {"content":"👽 Taro v4.1.9\n\n","timestamp":1781511182585}
+[16:13:01.331] [PAI SDK] Received event: log {"content":"Tips:\n1. 建议开启持久化缓存功能，能有效提升二次编译速度，详情请参考: https://docs.taro.zone/docs/config-detail#cache。\n\n\n","timestamp":1781511183603}
+[16:13:03.586] [PAI SDK] Received event: log {"content":"ℹ 预览端口 10086 被占用, 自动切换到空闲端口 10087\n","timestamp":1781511185858}
+[16:13:04.337] [PAI SDK] Received event: log {"content":"- 即将开始启动编译，请稍等~\n","timestamp":1781511186609}
+[16:13:23.382] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 4:13:25 PM\n\n","timestamp":1781511205654}
+[16:13:23.385] [PAI SDK] cloudServer.start response: {
   "status": "running",
   "msg": "Cloud Server started successfully.",
-  "hash": "pai-preview-trae-32580ea2"
+  "hash": "pai-preview-trae-7e310d2d"
 }
-[10:29:29.229] [Preview Server] Frontend disconnected, clients size = 1
-[10:29:29.944] [Preview Server] Frontend connected, clients size = 1
-[10:29:29.945] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nm60029l4ha50oao7g-sandbox&hash=pai-preview-trae-32580ea2","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-32580ea2&uuid=db3f3032-e29e-4a69-a35b-8dddd7989767","status":"running","msg":"Cloud Server started successfully.","framework":"taro"}}
+[16:13:23.514] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/components/Loading/index.tsx\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/components/Loading/index.tsx: Identifier 'Loading' has already been declared. (20:9)\n\n  18 | }\n  19 |\n> 20 | function Loading({\n     |          ^\n  21 |   scene,\n  22 |   text,\n  23 |   subtext,","timestamp":1781511205784}]
+[16:13:39.201] [Preview Server] Frontend connected, clients size = 1
+[16:13:39.202] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","msg":"Cloud Server started successfully.","framework":"taro"}}
+[16:13:39.203] Sending cached status to new connection, lastErrorMessage = {"event":"compile_error","message":[{"filename":"","lineNumber":0,"description":"ERROR in ./src/components/Loading/index.tsx\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/components/Loading/index.tsx: Identifier 'Loading' has already been declared. (20:9)\n\n  18 | }\n  19 |\n> 20 | function Loading({\n     |          ^\n  21 |   scene,\n  22 |   text,\n  23 |   subtext,","timestamp":1781511205784}]}
+[16:14:13.446] [Preview Server] Frontend connected, clients size = 2
+[16:14:13.447] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","msg":"Cloud Server started successfully.","framework":"taro"}}
+[16:14:13.448] Sending cached status to new connection, lastErrorMessage = {"event":"compile_error","message":[{"filename":"","lineNumber":0,"description":"ERROR in ./src/components/Loading/index.tsx\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/components/Loading/index.tsx: Identifier 'Loading' has already been declared. (20:9)\n\n  18 | }\n  19 |\n> 20 | function Loading({\n     |          ^\n  21 |   scene,\n  22 |   text,\n  23 |   subtext,","timestamp":1781511205784}]}
+[16:14:18.047] [Preview Server] Frontend disconnected, clients size = 2
+[16:14:18.171] [Preview Server] Frontend connected, clients size = 2
+[16:14:18.171] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","msg":"Cloud Server started successfully.","framework":"taro"}}
+[16:14:18.172] Sending cached status to new connection, lastErrorMessage = {"event":"compile_error","message":[{"filename":"","lineNumber":0,"description":"ERROR in ./src/components/Loading/index.tsx\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/components/Loading/index.tsx: Identifier 'Loading' has already been declared. (20:9)\n\n  18 | }\n  19 |\n> 20 | function Loading({\n     |          ^\n  21 |   scene,\n  22 |   text,\n  23 |   subtext,","timestamp":1781511205784}]}
+[16:28:27.365] File change detected. Updating...
+[16:28:27.379] readProjectFiles, Found 58 files to read.
+[16:28:27.393] Files read. Count: 58
+[16:28:27.393] Calling pai.updateCloudDev...
+[16:28:27.394] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[16:28:27.453] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781512109730}
+[16:28:27.453] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781512109730}
+[16:28:27.453] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox&hash=pai-preview-trae-7e310d2d
+[16:28:27.454] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[16:28:27.454] Update success (pai.updateCloudDev returned)
+[16:28:27.523] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781512109801}
+[16:28:27.559] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781512109837}
+[16:28:29.928] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 4:28:32 PM\n\n","timestamp":1781512112206}
+[16:28:29.980] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/hooks/useGlobalLoading.ts\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/hooks/useGlobalLoading.ts: Unexpected token, expected \",\" (65:59)\n\n  63 |   const startLoading = useCallback((scene: LoadingScene, text?: string) => {\n  64 |     console.log(`[GlobalLoading] Start: ${scene}`);\n> 65 |     setLoadingStates((prev) => ({ ...prev, [scene]: true });\n     |                                                            ^\n  66 |     if (text) {\n  67 |       setLoadingTexts((prev) => ({ ...prev, [scene]: text });\n  68 |     }","timestamp":1781512112257}]
+[16:30:20.199] [Preview Server] Frontend disconnected, clients size = 2
+[16:30:20.577] [Preview Server] Frontend connected, clients size = 2
+[16:30:20.578] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[16:30:20.578] Sending cached status to new connection, lastErrorMessage = {"event":"compile_error","message":[{"filename":"","lineNumber":0,"description":"ERROR in ./src/hooks/useGlobalLoading.ts\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/hooks/useGlobalLoading.ts: Unexpected token, expected \",\" (65:59)\n\n  63 |   const startLoading = useCallback((scene: LoadingScene, text?: string) => {\n  64 |     console.log(`[GlobalLoading] Start: ${scene}`);\n> 65 |     setLoadingStates((prev) => ({ ...prev, [scene]: true });\n     |                                                            ^\n  66 |     if (text) {\n  67 |       setLoadingTexts((prev) => ({ ...prev, [scene]: text });\n  68 |     }","timestamp":1781512112257}]}
+[16:31:23.275] Received update request via HTTP
+[16:31:25.293] File change detected. Updating...
+[16:31:25.317] readProjectFiles, Found 58 files to read.
+[16:31:25.346] Files read. Count: 58
+[16:31:25.346] Calling pai.updateCloudDev...
+[16:31:25.346] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[16:31:25.416] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781512287693}
+[16:31:25.417] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781512287693}
+[16:31:25.417] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nqs40290l50k8qiku0-sandbox&hash=pai-preview-trae-7e310d2d
+[16:31:25.418] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[16:31:25.418] Update success (pai.updateCloudDev returned)
+[16:31:25.533] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781512287811}
+[16:31:27.324] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 4:31:29 PM\n\n","timestamp":1781512289603}
+[16:31:27.367] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/hooks/useGlobalLoading.ts\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/babel-loader@8.2.1_@babel+core@7.29.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/babel-loader/lib/index.js):\nSyntaxError: /src/hooks/useGlobalLoading.ts: Unexpected token, expected \",\" (65:59)\n\n  63 |   const startLoading = useCallback((scene: LoadingScene, text?: string) => {\n  64 |     console.log(`[GlobalLoading] Start: ${scene}`);\n> 65 |     setLoadingStates((prev) => ({ ...prev, [scene]: true });\n     |                                                            ^\n  66 |     if (text) {\n  67 |       setLoadingTexts((prev) => ({ ...prev, [scene]: text });\n  68 |     }","timestamp":1781512289642}]
+[16:36:13.304] [Preview Server] Frontend disconnected, clients size = 2

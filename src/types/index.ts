@@ -63,3 +63,6 @@ export interface UserInfo {
 }
 
 export type LoadingState = 'idle' | 'loading' | 'success' | 'error';
+
+export type { EmptyStatePreset } from '@/components/EmptyState';
+export type { LoadingScene } from '@/hooks/useGlobalLoading';

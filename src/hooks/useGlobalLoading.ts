@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, useMemo } from 'react';
 
 export type LoadingScene =
   | 'weather'
@@ -12,22 +12,7 @@ export type LoadingScene =
   | 'user-info'
   | 'global';
 
-interface LoadingContextType {
-  loadingStates: Record<LoadingScene, boolean>;
-  loadingTexts: Record<LoadingScene, string>;
-  isLoading: (scene: LoadingScene) => boolean;
-  getLoadingText: (scene: LoadingScene) => string;
-  startLoading: (scene: LoadingScene, text?: string) => void;
-  stopLoading: (scene: LoadingScene) => void;
-  withLoading: <T>(
-    scene: LoadingScene,
-    fn: () => Promise<T>,
-    text?: string
-  ) => Promise<T | null>;
-  anyLoading: boolean;
-}
-
-const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
+export const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
   weather: '正在获取天气信息...',
   recommend: '正在生成穿搭推荐...',
   'outfit-list': '加载穿搭记录...',
@@ -40,15 +25,36 @@ const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
   global: '加载中...'
 };
 
-const LoadingContext = createContext<LoadingContextType | null>(null);
+interface LoadingContextValue {
+  loadingStates: Record<LoadingScene, boolean>;
+  isLoading: (scene: LoadingScene) => boolean;
+  getLoadingText: (scene: LoadingScene) => string;
+  startLoading: (scene: LoadingScene, text?: string) => void;
+  stopLoading: (scene: LoadingScene) => void;
+  withLoading: <T>(scene: LoadingScene, fn: () => Promise<T>, text?: string) => Promise<T>;
+  anyLoading: boolean;
+}
 
-export function LoadingProvider({ children }: { children: ReactNode }) {
+const LoadingContext = createContext<LoadingContextValue | null>(null);
+
+const createInitialStates = (): Record<LoadingScene, boolean> => ({
+  weather: false,
+  recommend: false,
+  'outfit-list': false,
+  'outfit-upload': false,
+  'score-history': false,
+  'score-calc': false,
+  'tag-list': false,
+  'tag-create': false,
+  'user-info': false,
+  global: false
+} as Record<LoadingScene, boolean>);
+
+export function LoadingProvider({ children }: { children: React.ReactNode }) {
   const [loadingStates, setLoadingStates] = useState<Record<LoadingScene, boolean>>(
-    {} as Record<LoadingScene, boolean>
+    createInitialStates()
   );
-  const [loadingTexts, setLoadingTexts] = useState<Record<LoadingScene, string>>(
-    DEFAULT_LOADING_TEXTS
-  );
+  const [customTexts, setCustomTexts] = useState<Partial<Record<LoadingScene, string>>>({});
 
   const isLoading = useCallback(
     (scene: LoadingScene) => !!loadingStates[scene],
@@ -56,67 +62,74 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
   );
 
   const getLoadingText = useCallback(
-    (scene: LoadingScene) => loadingTexts[scene] || DEFAULT_LOADING_TEXTS[scene] || '加载中...',
-    [loadingTexts]
+    (scene: LoadingScene) => {
+      return customTexts[scene] || DEFAULT_LOADING_TEXTS[scene] || '加载中...';
+    },
+    [customTexts]
   );
 
   const startLoading = useCallback((scene: LoadingScene, text?: string) => {
-    console.log(`[GlobalLoading] Start: ${scene}`);
-    setLoadingStates((prev) => ({ ...prev, [scene]: true });
+    setLoadingStates((prev) => ({ ...prev, [scene]: true }));
     if (text) {
-      setLoadingTexts((prev) => ({ ...prev, [scene]: text });
+      setCustomTexts((prev) => ({ ...prev, [scene]: text }));
     }
   }, []);
 
   const stopLoading = useCallback((scene: LoadingScene) => {
-    console.log(`[GlobalLoading] Stop: ${scene}`);
     setLoadingStates((prev) => ({ ...prev, [scene]: false }));
   }, []);
 
   const withLoading = useCallback(
-    async <T,>(
-      scene: LoadingScene,
-      fn: () => Promise<T>,
-      text?: string
-    ): Promise<T | null> => {
+    async <T,>(scene: LoadingScene, fn: () => Promise<T>, text?: string): Promise<T> => {
       startLoading(scene, text);
       try {
         const result = await fn();
         return result;
-      } catch (error) {
-          console.error(`[GlobalLoading] Error in ${scene}:`, error);
-          throw error;
-        } finally {
-          stopLoading(scene);
-        }
-      },
-      [startLoading, stopLoading]
-    );
+      } finally {
+        stopLoading(scene);
+      }
+    },
+    [startLoading, stopLoading]
+  );
 
-  const anyLoading = Object.values(loadingStates).some(Boolean);
+  const anyLoading = useMemo(
+    () => Object.values(loadingStates).some(Boolean),
+    [loadingStates]
+  );
+
+  const value = useMemo<LoadingContextValue>(
+    () => ({
+      loadingStates,
+      isLoading,
+      getLoadingText,
+      startLoading,
+      stopLoading,
+      withLoading,
+      anyLoading
+    }),
+    [loadingStates, isLoading, getLoadingText, startLoading, stopLoading, withLoading, anyLoading]
+  );
 
   return (
-    <LoadingContext.Provider
-      value={{
-        loadingStates,
-        loadingTexts,
-        isLoading,
-        getLoadingText,
-        startLoading,
-        stopLoading,
-        withLoading,
-        anyLoading
-      }}
-    >
+    <LoadingContext.Provider value={value}>
       {children}
     </LoadingContext.Provider>
   );
 }
 
-export function useGlobalLoading(): LoadingContextType {
+export function useGlobalLoading(): LoadingContextValue {
   const context = useContext(LoadingContext);
   if (!context) {
-    throw new Error('useGlobalLoading must be used within LoadingProvider');
+    const fallback: LoadingContextValue = {
+      loadingStates: createInitialStates(),
+      isLoading: () => false,
+      getLoadingText: (scene) => DEFAULT_LOADING_TEXTS[scene] || '加载中...',
+      startLoading: () => {},
+      stopLoading: () => {},
+      withLoading: async (_scene, fn) => fn(),
+      anyLoading: false
+    };
+    return fallback;
   }
   return context;
 }

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text } from '@tarojs/components';
 import classnames from 'classnames';
-import { useGlobalLoading } from '@/hooks/useGlobalLoading';
+import { useGlobalLoading, DEFAULT_LOADING_TEXTS } from '@/hooks/useGlobalLoading';
 import type { LoadingScene } from '@/hooks/useGlobalLoading';
 import styles from './index.module.scss';
 
 type LoadingVariant = 'default' | 'row' | 'fullScreen' | 'overlay' | 'compact';
 
-interface LoadingProps {
+interface LoadingSpinnerProps {
   scene?: LoadingScene;
   text?: string;
   subtext?: string;
@@ -16,19 +16,23 @@ interface LoadingProps {
   fullScreen?: boolean;
 }
 
-function Loading({
+const LoadingSpinner = ({
   scene,
   text,
   subtext,
   variant = 'default',
   showProgress = false,
   fullScreen = false
-}: LoadingProps) {
+}: LoadingSpinnerProps) => {
   const { getLoadingText } = useGlobalLoading();
 
-  const displayText = text || (scene ? getLoadingText(scene) : '加载中...');
+  const displayText = useMemo(() => {
+    if (text) return text;
+    if (scene) return getLoadingText(scene);
+    return DEFAULT_LOADING_TEXTS.global || '加载中...';
+  }, [text, scene, getLoadingText]);
 
-  const spinnerEl = (
+  const spinnerNode = (
     <View
       className={classnames(
         styles.spinnerWrapper,
@@ -49,7 +53,7 @@ function Loading({
     return (
       <View className={styles.overlay}>
         <View className={styles.overlayContent}>
-          {spinnerEl}
+          {spinnerNode}
           <Text className={styles.overlayText}>{displayText}</Text>
           {subtext && <Text className={styles.overlaySubtext}>{subtext}</Text>}
           {showProgress && (
@@ -65,7 +69,7 @@ function Loading({
   if (variant === 'row') {
     return (
       <View className={styles.loadingRow}>
-        {spinnerEl}
+        {spinnerNode}
         <Text className={styles.textRow}>{displayText}</Text>
       </View>
     );
@@ -79,11 +83,11 @@ function Loading({
         variant === 'compact' && styles.compact
       )}
     >
-      {spinnerEl}
+      {spinnerNode}
       <Text className={styles.text}>{displayText}</Text>
     </View>
   );
-}
+};
 
 export interface SceneLoadingProps {
   scene: LoadingScene;
@@ -94,7 +98,7 @@ export interface SceneLoadingProps {
   children: React.ReactNode;
 }
 
-export function SceneLoading({
+function SceneLoadingBoundary({
   scene,
   fallback,
   variant,
@@ -110,7 +114,7 @@ export function SceneLoading({
   if (fallback) return <>{fallback}</>;
 
   return (
-    <Loading
+    <LoadingSpinner
       scene={scene}
       variant={variant}
       showProgress={showProgress}
@@ -119,4 +123,50 @@ export function SceneLoading({
   );
 }
 
-export default Loading;
+export const SceneLoading = SceneLoadingBoundary;
+
+export const withLoading = (options: {
+  scene: LoadingScene;
+  variant?: LoadingVariant;
+  errorFallback?: React.ReactNode;
+}) => {
+  return <P extends object>(Component: React.ComponentType<P>) => {
+    const WithLoadingWrapper = (props: P) => {
+      const { isLoading, startLoading, stopLoading } = useGlobalLoading();
+      const [hasError, setHasError] = React.useState(false);
+
+      React.useEffect(() => {
+        const runAsync = async () => {
+          startLoading(options.scene);
+          try {
+            await new Promise<void>((resolve) => setTimeout(resolve, 600));
+            stopLoading(options.scene);
+          } catch {
+            setHasError(true);
+            stopLoading(options.scene);
+          }
+        };
+        runAsync();
+      }, [startLoading, stopLoading, options.scene]);
+
+      if (isLoading(options.scene)) {
+        return <LoadingSpinner scene={options.scene} variant={options.variant} />;
+      }
+
+      if (hasError) {
+        return (
+          options.errorFallback || (
+            <View className={styles.loadingContainer}>
+              <Text className={styles.text}>加载失败，请重试</Text>
+            </View>
+          )
+        );
+      }
+
+      return <Component {...props} />;
+    };
+    return WithLoadingWrapper;
+  };
+};
+
+export default LoadingSpinner;
