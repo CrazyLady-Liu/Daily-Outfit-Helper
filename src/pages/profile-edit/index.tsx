@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, Button, Image, Input } from '@tarojs/components';
+import { View, Text, ScrollView, Image, Input } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import Loading from '@/components/Loading';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
@@ -105,13 +105,14 @@ const ProfileEditPage: React.FC = () => {
       </ScrollView>
 
       <View className={styles.saveBtnWrapper}>
-        <Button
-          className={styles.saveBtn}
-          onClick={handleSave}
-          disabled={isLoading('profile-save')}
+        <View
+          className={classnames(styles.saveBtn, isLoading('profile-save') && styles.saveBtnDisabled)}
+          onTap={handleSave}
         >
-          {isLoading('profile-save') ? '保存中...' : '保存'}
-        </Button>
+          <Text className={styles.saveBtnText}>
+            {isLoading('profile-save') ? '保存中...' : '保存'}
+          </Text>
+        </View>
       </View>
 
       {isLoading('profile-save') && (

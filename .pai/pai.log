@@ -753,3 +753,377 @@
 [20:18:52.118] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
 [20:19:54.391] [Preview Server] Frontend connected, clients size = 2
 [20:19:54.392] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[20:42:59.682] File change detected. Updating...
+[20:42:59.700] readProjectFiles, Found 62 files to read.
+[20:42:59.730] Files read. Count: 62
+[20:42:59.731] Calling pai.updateCloudDev...
+[20:42:59.733] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:43:00.049] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527382419}
+[20:43:00.050] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527382419}
+[20:43:00.050] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:43:00.051] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:43:00.052] Update success (pai.updateCloudDev returned)
+[20:43:00.230] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527382600}
+[20:43:00.237] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527382607}
+[20:43:01.014] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 8:43:03 PM\n\n","timestamp":1781527383385}
+[20:43:42.490] File change detected. Updating...
+[20:43:42.499] readProjectFiles, Found 63 files to read.
+[20:43:42.512] Files read. Count: 63
+[20:43:42.512] Calling pai.updateCloudDev...
+[20:43:42.512] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:43:42.725] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527425096}
+[20:43:42.725] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527425096}
+[20:43:42.725] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:43:42.726] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:43:42.727] Update success (pai.updateCloudDev returned)
+[20:43:42.766] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527425137}
+[20:43:42.773] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527425143}
+[20:43:44.353] [PAI SDK] Received event: log {"content":"⚠️  编译警告. 6/15/2026, 8:43:46 PM\n\n","timestamp":1781527426722}
+[20:45:12.108] File change detected. Updating...
+[20:45:12.124] readProjectFiles, Found 63 files to read.
+[20:45:12.138] Files read. Count: 63
+[20:45:12.138] Calling pai.updateCloudDev...
+[20:45:12.138] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:45:12.574] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527514946}
+[20:45:12.574] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527514946}
+[20:45:12.574] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:45:12.575] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:45:12.576] Update success (pai.updateCloudDev returned)
+[20:45:12.614] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527514985}
+[20:45:12.620] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527514992}
+[20:45:14.691] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:45:17 PM\n\n","timestamp":1781527517062}
+[20:45:14.734] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527517104}]
+[20:45:14.796] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527517167}
+[20:45:53.274] File change detected. Updating...
+[20:45:53.288] readProjectFiles, Found 63 files to read.
+[20:45:53.311] Files read. Count: 63
+[20:45:53.311] Calling pai.updateCloudDev...
+[20:45:53.312] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:45:53.609] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527555981}
+[20:45:53.609] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527555981}
+[20:45:53.610] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:45:53.610] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:45:53.611] Update success (pai.updateCloudDev returned)
+[20:45:53.647] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527556018}
+[20:45:53.655] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527556027}
+[20:45:54.673] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:45:57 PM\n\n","timestamp":1781527557045}
+[20:45:54.699] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527557071}]
+[20:45:54.792] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527557157}
+[20:46:37.685] File change detected. Updating...
+[20:46:37.697] readProjectFiles, Found 63 files to read.
+[20:46:37.718] Files read. Count: 63
+[20:46:37.718] Calling pai.updateCloudDev...
+[20:46:37.718] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:46:39.199] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527601571}
+[20:46:39.199] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527601571}
+[20:46:39.200] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:46:39.200] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:46:39.200] Update success (pai.updateCloudDev returned)
+[20:46:39.237] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527601609}
+[20:46:39.247] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527601617}
+[20:46:40.194] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:46:42 PM\n\n","timestamp":1781527602565}
+[20:46:40.211] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527602581}]
+[20:46:40.298] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527602670}
+[20:47:21.387] File change detected. Updating...
+[20:47:21.398] readProjectFiles, Found 63 files to read.
+[20:47:21.410] Files read. Count: 63
+[20:47:21.410] Calling pai.updateCloudDev...
+[20:47:21.410] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:47:23.530] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527645901}
+[20:47:23.531] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527645901}
+[20:47:23.531] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:47:23.531] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:47:23.532] Update success (pai.updateCloudDev returned)
+[20:47:23.579] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527645951}
+[20:47:23.580] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527645952}
+[20:47:24.704] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:47:27 PM\n\n","timestamp":1781527647075}
+[20:47:24.746] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527647117}]
+[20:47:24.807] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527647177}
+[20:48:53.987] File change detected. Updating...
+[20:48:53.999] readProjectFiles, Found 63 files to read.
+[20:48:54.009] Files read. Count: 63
+[20:48:54.009] Calling pai.updateCloudDev...
+[20:48:54.010] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:48:54.421] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527736793}
+[20:48:54.421] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527736793}
+[20:48:54.421] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:48:54.421] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:48:54.422] Update success (pai.updateCloudDev returned)
+[20:48:54.459] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527736832}
+[20:48:54.468] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527736840}
+[20:48:55.424] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:48:57 PM\n\n","timestamp":1781527737794}
+[20:48:55.473] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527737840}]
+[20:48:55.529] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527737901}
+[20:49:39.030] File change detected. Updating...
+[20:49:39.042] readProjectFiles, Found 63 files to read.
+[20:49:39.052] Files read. Count: 63
+[20:49:39.052] Calling pai.updateCloudDev...
+[20:49:39.052] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:49:39.371] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527781744}
+[20:49:39.372] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527781744}
+[20:49:39.372] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:49:39.372] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:49:39.373] Update success (pai.updateCloudDev returned)
+[20:49:39.410] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527781783}
+[20:49:39.413] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527781786}
+[20:49:40.316] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:49:42 PM\n\n","timestamp":1781527782689}
+[20:49:40.344] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527782715}]
+[20:49:40.418] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527782791}
+[20:52:34.717] File change detected. Updating...
+[20:52:34.738] readProjectFiles, Found 63 files to read.
+[20:52:34.749] Files read. Count: 63
+[20:52:34.749] Calling pai.updateCloudDev...
+[20:52:34.750] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:52:35.488] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527957863}
+[20:52:35.489] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527957863}
+[20:52:35.489] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:52:35.489] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:52:35.489] Update success (pai.updateCloudDev returned)
+[20:52:35.538] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527957909}
+[20:52:35.538] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527957910}
+[20:52:36.585] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:52:38 PM\n\n","timestamp":1781527958956}
+[20:52:36.617] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781527958990}]
+[20:52:36.684] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781527959057}
+[20:53:16.473] File change detected. Updating...
+[20:53:16.492] readProjectFiles, Found 63 files to read.
+[20:53:16.500] Files read. Count: 63
+[20:53:16.501] Calling pai.updateCloudDev...
+[20:53:16.501] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:53:16.806] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527999179}
+[20:53:16.806] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781527999179}
+[20:53:16.806] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:53:16.806] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:53:16.806] Update success (pai.updateCloudDev returned)
+[20:53:16.848] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527999220}
+[20:53:16.851] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781527999223}
+[20:53:17.785] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:53:20 PM\n\n","timestamp":1781528000158}
+[20:53:17.810] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781528000183}]
+[20:53:17.885] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781528000259}
+[20:54:00.256] File change detected. Updating...
+[20:54:00.271] readProjectFiles, Found 63 files to read.
+[20:54:00.280] Files read. Count: 63
+[20:54:00.280] Calling pai.updateCloudDev...
+[20:54:00.281] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:54:00.552] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781528042926}
+[20:54:00.552] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781528042926}
+[20:54:00.552] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:54:00.553] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:54:00.553] Update success (pai.updateCloudDev returned)
+[20:54:00.588] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781528042963}
+[20:54:00.594] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781528042968}
+[20:54:01.763] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:54:04 PM\n\n","timestamp":1781528044137}
+[20:54:01.816] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781528044186}]
+[20:54:01.868] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781528044242}
+[20:55:32.314] File change detected. Updating...
+[20:55:32.325] readProjectFiles, Found 63 files to read.
+[20:55:32.341] Files read. Count: 63
+[20:55:32.341] Calling pai.updateCloudDev...
+[20:55:32.341] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:55:32.536] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781528134911}
+[20:55:32.536] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781528134911}
+[20:55:32.536] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:55:32.537] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:55:32.537] Update success (pai.updateCloudDev returned)
+[20:55:32.579] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781528134952}
+[20:55:32.581] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781528134956}
+[20:55:33.813] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:55:36 PM\n\n","timestamp":1781528136188}
+[20:55:33.850] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781528136223}]
+[20:55:33.915] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781528136290}
+[20:59:12.383] File change detected. Updating...
+[20:59:12.391] readProjectFiles, Found 63 files to read.
+[20:59:12.402] Files read. Count: 63
+[20:59:12.403] Calling pai.updateCloudDev...
+[20:59:12.403] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[20:59:12.597] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781528354972}
+[20:59:12.597] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781528354972}
+[20:59:12.597] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[20:59:12.598] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[20:59:12.598] Update success (pai.updateCloudDev returned)
+[20:59:12.637] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781528355014}
+[20:59:12.640] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781528355017}
+[20:59:13.609] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 8:59:15 PM\n\n","timestamp":1781528355985}
+[20:59:13.636] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781528356011}]
+[20:59:13.711] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781528356087}
+[21:02:26.333] [Preview Server] Frontend disconnected, clients size = 2
+[21:03:13.785] [Preview Server] Frontend connected, clients size = 2
+[21:03:13.786] Sending cached status to new connection, lastStatusMessage = {"event":"status_change","message":{"url":"https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d","schema":"aipa://preview?type=pai&aipa_id=pai-preview-trae-7e310d2d&uuid=39cdff72-25f0-4339-a096-2edac4b6d4af","status":"running","framework":"taro"}}
+[21:03:13.786] Sending cached status to new connection, lastErrorMessage = {"event":"compile_error","message":[{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781528356011}]}
+[21:23:48.629] File change detected. Updating...
+[21:23:48.641] readProjectFiles, Found 63 files to read.
+[21:23:48.704] Files read. Count: 63
+[21:23:48.704] Calling pai.updateCloudDev...
+[21:23:48.705] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[21:23:49.422] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781529831806}
+[21:23:49.422] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781529831806}
+[21:23:49.422] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[21:23:49.422] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[21:23:49.423] Update success (pai.updateCloudDev returned)
+[21:23:49.529] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781529831913}
+[21:23:49.531] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781529831916}
+[21:23:50.487] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 9:23:52 PM\n\n","timestamp":1781529832872}
+[21:23:50.514] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781529832897}]
+[21:23:50.588] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781529832973}
+[21:27:33.188] File change detected. Updating...
+[21:27:33.199] readProjectFiles, Found 63 files to read.
+[21:27:33.212] Files read. Count: 63
+[21:27:33.212] Calling pai.updateCloudDev...
+[21:27:33.212] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[21:27:33.556] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530055941}
+[21:27:33.556] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530055941}
+[21:27:33.556] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[21:27:33.557] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[21:27:33.557] Update success (pai.updateCloudDev returned)
+[21:27:33.601] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530055987}
+[21:27:33.605] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530055990}
+[21:27:34.603] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 9:27:36 PM\n\n","timestamp":1781530056987}
+[21:27:34.630] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781530057016}]
+[21:27:34.707] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781530057091}
+[21:30:41.751] File change detected. Updating...
+[21:30:41.793] readProjectFiles, Found 63 files to read.
+[21:30:41.823] Files read. Count: 63
+[21:30:41.823] Calling pai.updateCloudDev...
+[21:30:41.823] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[21:30:42.089] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530244476}
+[21:30:42.089] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530244476}
+[21:30:42.089] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[21:30:42.090] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[21:30:42.090] Update success (pai.updateCloudDev returned)
+[21:30:42.186] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530244572}
+[21:30:42.191] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530244578}
+[21:30:43.111] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 9:30:45 PM\n\n","timestamp":1781530245497}
+[21:30:43.142] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781530245528}]
+[21:30:43.213] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781530245598}
+[21:32:17.228] File change detected. Updating...
+[21:32:17.241] readProjectFiles, Found 63 files to read.
+[21:32:17.254] Files read. Count: 63
+[21:32:17.254] Calling pai.updateCloudDev...
+[21:32:17.255] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[21:32:17.524] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530339911}
+[21:32:17.524] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530339911}
+[21:32:17.524] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[21:32:17.525] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[21:32:17.525] Update success (pai.updateCloudDev returned)
+[21:32:17.575] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530339962}
+[21:32:17.628] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530340016}
+[21:32:18.671] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 9:32:21 PM\n\n","timestamp":1781530341058}
+[21:32:18.719] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781530341105}]
+[21:32:18.771] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781530341159}
+[21:33:43.225] [Preview Server] Frontend disconnected, clients size = 2
+[21:40:31.164] File change detected. Updating...
+[21:40:31.172] readProjectFiles, Found 63 files to read.
+[21:40:31.196] Files read. Count: 63
+[21:40:31.196] Calling pai.updateCloudDev...
+[21:40:31.196] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[21:40:31.463] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530833852}
+[21:40:31.463] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530833852}
+[21:40:31.463] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[21:40:31.464] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[21:40:31.464] Update success (pai.updateCloudDev returned)
+[21:40:31.566] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530833956}
+[21:40:32.574] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 9:40:34 PM\n\n","timestamp":1781530834965}
+[21:40:32.623] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781530835013}]
+[21:40:32.676] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781530835066}
+[21:41:25.160] File change detected. Updating...
+[21:41:25.174] readProjectFiles, Found 63 files to read.
+[21:41:25.184] Files read. Count: 63
+[21:41:25.184] Calling pai.updateCloudDev...
+[21:41:25.185] [PAI SDK] cloudServer.update called, appId: pai-preview-trae-7e310d2d
+[21:41:25.449] [PAI SDK] Received event: reload {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530887840}
+[21:41:25.449] [PAI SDK] CloudServer received reload event: {"url":"aipa://pai-preview-trae-7e310d2d.aipa-cloud.bytedance.net?type=pai","timestamp":1781530887840}
+[21:41:25.449] [PAI SDK] reload, url = https://sd62opo6oqou1ckhsuo00.apigateway-cn-beijing.volceapi.com/?faasInstanceName=vefaas-f0vkicge-pyw70jixna-d8nt3io2j5h64oool6f0-sandbox&hash=pai-preview-trae-7e310d2d
+[21:41:25.449] [PAI SDK] cloudServer.update response: {
+  "status": "running",
+  "reload": false,
+  "hash": "pai-preview-trae-7e310d2d"
+}
+[21:41:25.450] Update success (pai.updateCloudDev returned)
+[21:41:25.547] [PAI SDK] Received event: log {"content":"<i> [webpack-dev-middleware] wait until bundle finished: /\n","timestamp":1781530887938}
+[21:41:27.096] [PAI SDK] Received event: log {"content":"🙅   编译失败. 6/15/2026, 9:41:29 PM\n\n","timestamp":1781530889487}
+[21:41:27.113] [PAI SDK] Received event: compile_error [{"filename":"","lineNumber":0,"description":"ERROR in ./src/pages/profile-edit/index.module.scss (../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/css-loader@7.1.4_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].oneOf[0].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/postcss-loader@8.2.1_postcss@8.5.14_typescript@5.9.3_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[0]!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/resolve-url-loader@5.0.0/node_modules/resolve-url-loader/index.js!../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/profile-edit/index.module.scss)\nModule build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n   @ ./src/pages/profile-edit/index.module.scss\n   @ ./src/pages/profile-edit/index.tsx\n   @ ./src/app.config.ts","timestamp":1781530889504}]
+[21:41:27.198] [PAI SDK] Received event: log {"content":"ModuleBuildError: Module build failed (from ../../../var/cache/aipa-dev-server/prewarm/taro/a1bbf427d8f435dfb115d5256b2475a3/node_modules/.pnpm/sass-loader@14.2.1_sass@1.99.0_webpack@5.78.0_@swc+core@1.3.96_postcss@8.5.14_/node_modules/sass-loader/dist/cjs.js):\nUndefined variable.\n   ╷\n32 │   background: $color-bg-light;\n   │               ^^^^^^^^^^^^^^^\n   ╵\n  src/pages/profile-edit/index.module.scss 32:15  root stylesheet\n\n","timestamp":1781530889588}
+[21:56:21.004] [Preview Server] Frontend disconnected, clients size = 1
+[08:45:40.924] Heartbeat timeout.
+[08:45:40.925] Shutting down...
+[08:45:41.113] Stopping Cloud Dev...
+[08:45:41.387] [PAI SDK] WebSocket closed, reconnecting (1/3)...
+[08:45:41.537] [PAI SDK] stopCloudServer error: [TypeError: fetch failed] {
+  [cause]: Error: getaddrinfo ENOTFOUND pai.mobile.volcapp.com
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'pai.mobile.volcapp.com'
+  }
+}

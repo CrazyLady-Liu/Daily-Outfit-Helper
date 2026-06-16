@@ -142,22 +142,27 @@
 }
 
 .saveBtn {
-  @include button-reset;
   width: 100%;
   height: $button-height-lg;
   background: $color-primary;
-  color: #fff;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
   border-radius: $radius-button;
   transition: all $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:active {
     background: $color-primary-dark;
   }
+}
 
-  &:disabled {
-    background: $color-text-disabled;
-    color: $color-text-tertiary;
-  }
+.saveBtnDisabled {
+  background: $color-text-disabled !important;
+  pointer-events: none;
+}
+
+.saveBtnText {
+  color: #fff;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
 }

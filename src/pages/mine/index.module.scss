@@ -51,28 +51,32 @@
 }
 
 .editBtn {
-  @include button-reset;
   padding: $spacing-sm $spacing-md;
+  min-width: 120rpx;
+  min-height: 64rpx;
   background: rgba(255, 255, 255, 0.2);
   border: 2rpx solid rgba(255, 255, 255, 0.4);
-  color: $color-text-white;
-  font-size: $font-size-xs;
   border-radius: $radius-button;
   transition: all $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 
   &:active {
     background: rgba(255, 255, 255, 0.3);
-  }
-
-  &:disabled {
-    opacity: 0.6;
   }
 }
 
 .editBtnDisabled {
   background: rgba(255, 255, 255, 0.1) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
-  color: rgba(255, 255, 255, 0.6) !important;
+  pointer-events: none;
+}
+
+.editBtnText {
+  font-size: $font-size-xs;
+  color: $color-text-white;
 }
 
 .editBtnLoading {

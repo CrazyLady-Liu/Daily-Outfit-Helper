@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, Button, Image } from '@tarojs/components';
+import { View, Text, ScrollView, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import { SceneLoading } from '@/components/Loading';
@@ -86,20 +86,19 @@ const MinePage: React.FC = () => {
                 <Text className={styles.nicknameCol}>{userInfo.nickname}</Text>
                 <Text className={styles.taglineCol}>每天都要美美哒</Text>
               </View>
-              <Button
+              <View
                 className={classnames(styles.editBtn, isLoading('profile-edit') && styles.editBtnDisabled)}
-                onClick={handleEditProfile}
-                disabled={isLoading('profile-edit')}
+                onTap={handleEditProfile}
               >
                 {isLoading('profile-edit') ? (
                   <View className={styles.editBtnLoading}>
                     <View className={styles.editBtnSpinner} />
-                    <Text>加载中</Text>
+                    <Text className={styles.editBtnText}>加载中</Text>
                   </View>
                 ) : (
-                  '编辑'
+                  <Text className={styles.editBtnText}>编辑</Text>
                 )}
-              </Button>
+              </View>
             </View>
           </View>
 
