@@ -6,7 +6,7 @@ import EmptyState from '@/components/EmptyState';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
 import { ScoreRecord } from '@/types';
 import { useAppStore } from '@/store/useAppStore';
-import { delay, generateId, formatDate, getScoreLevel } from '@/utils';
+import { delay, generateId, formatDate, getScoreLevel, getOutfitImage } from '@/utils';
 import styles from './index.module.scss';
 
 const ScorePage: React.FC = () => {
@@ -44,7 +44,7 @@ const ScorePage: React.FC = () => {
 
     const newRecord: ScoreRecord = {
       id: generateId(),
-      image: `https://picsum.photos/id/${100 + Math.floor(Math.random() * 80)}/500/700`,
+      image: getOutfitImage(100 + Math.floor(Math.random() * 80), 500, 700),
       score: avgScore,
       overallComment:
         avgScore >= 85

@@ -8,7 +8,8 @@ export default defineAppConfig({
     'pages/recommend-detail/index',
     'pages/outfit-detail/index',
     'pages/score-result/index',
-    'pages/profile-edit/index'
+    'pages/profile-edit/index',
+    'pages/outfit-stats/index'
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -89,7 +89,7 @@
 }
 
 .photoItem {
-  width: calc(50% - #{$spacing-md / 2});
+  width: calc(50% - calc(#{$spacing-md} / 2));
 }
 
 .fabButton {

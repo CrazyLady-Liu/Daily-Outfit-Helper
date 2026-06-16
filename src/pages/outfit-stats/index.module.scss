@@ -1,0 +1,517 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 60rpx;
+  background: $color-bg-page;
+}
+
+.timeFilter {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: $color-bg-page;
+  padding: $spacing-md $page-padding;
+  border-bottom: 2rpx solid $color-divider;
+}
+
+.filterTabs {
+  display: flex;
+  background: $color-bg-card;
+  border-radius: $radius-button;
+  padding: 6rpx;
+  box-shadow: $shadow-card;
+}
+
+.filterTab {
+  flex: 1;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-button;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  transition: all $transition-base;
+
+  &.active {
+    background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+    color: $color-text-white;
+    font-weight: $font-weight-semibold;
+    box-shadow: 0 4rpx 12rpx rgba(255, 143, 163, 0.3);
+  }
+}
+
+.statsHeader {
+  padding: $spacing-md $page-padding 0;
+}
+
+.statsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.statsSubtitle {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.coreMetrics {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md $page-padding;
+}
+
+.metricCard {
+  flex: 1;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg $spacing-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: $shadow-card;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6rpx;
+  }
+
+  &.metricOutfit::before {
+    background: linear-gradient(90deg, $color-primary, $color-primary-light);
+  }
+
+  &.metricScore::before {
+    background: linear-gradient(90deg, $color-secondary, $color-secondary-light);
+  }
+
+  &.metricTag::before {
+    background: linear-gradient(90deg, $color-accent, #FFE08A);
+  }
+}
+
+.metricIcon {
+  font-size: 44rpx;
+  margin-bottom: $spacing-xs;
+}
+
+.metricValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  line-height: 1.2;
+  margin-bottom: 4rpx;
+}
+
+.metricLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.section {
+  padding: $spacing-md $page-padding;
+  margin-top: $spacing-sm;
+}
+
+.sectionCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.sectionIcon {
+  font-size: $font-size-lg;
+}
+
+.sectionExtra {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.styleDistribution {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: center;
+}
+
+.pieChart {
+  width: 220rpx;
+  height: 220rpx;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pieCenter {
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  background: $color-bg-card;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.pieCenterValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.pieCenterLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.styleRankList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.styleRankItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.rankIndex {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: $radius-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+  flex-shrink: 0;
+
+  &.rank1 {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  }
+
+  &.rank2 {
+    background: linear-gradient(135deg, #FF8FA3, #FFB8C5);
+  }
+
+  &.rank3 {
+    background: linear-gradient(135deg, #FFD166, #FFE08A);
+  }
+
+  &.rankOther {
+    background: $color-primary-bg;
+    color: $color-text-secondary;
+  }
+}
+
+.styleName {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  flex: 1;
+}
+
+.styleBarWrap {
+  width: 120rpx;
+  height: 12rpx;
+  background: $color-divider;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.styleBar {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width $transition-slow;
+}
+
+.styleCount {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  width: 60rpx;
+  text-align: right;
+}
+
+.scoreSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.avgScoreCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-md;
+  background: linear-gradient(135deg, #FFF8E7 0%, #FFFFFF 100%);
+  border-radius: $radius-md;
+}
+
+.avgScoreCircle {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: conic-gradient($color-accent var(--progress, 0%), #FFEFD5 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.avgScoreInner {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  background: $color-bg-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avgScoreValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-accent;
+  line-height: 1;
+}
+
+.avgScoreLabel {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.avgScoreInfo {
+  flex: 1;
+}
+
+.avgScoreTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.avgScoreDesc {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: 1.6;
+}
+
+.scoreDistribution {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.distributionItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.distributionLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  width: 80rpx;
+  flex-shrink: 0;
+}
+
+.distributionBarWrap {
+  flex: 1;
+  height: 24rpx;
+  background: $color-divider;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.distributionBar {
+  height: 100%;
+  border-radius: $radius-round;
+  background: linear-gradient(90deg, $color-primary, $color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8rpx;
+  transition: width $transition-slow;
+  min-width: 40rpx;
+}
+
+.distributionValue {
+  font-size: 20rpx;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
+
+.tagsRanking {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.rankBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.rankBlockTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.rankBlockIcon {
+  font-size: $font-size-md;
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.tagRankItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 8rpx 16rpx;
+  border-radius: $radius-button;
+  background: $color-primary-bg;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  transition: all $transition-base;
+
+  &.top1 {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    color: $color-text-white;
+    font-weight: $font-weight-semibold;
+    transform: scale(1.1);
+  }
+
+  &.top2 {
+    background: linear-gradient(135deg, $color-primary, $color-primary-light);
+    color: $color-text-white;
+    font-weight: $font-weight-medium;
+    transform: scale(1.05);
+  }
+
+  &.top3 {
+    background: linear-gradient(135deg, $color-accent, #FFE08A);
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+    transform: scale(1.02);
+  }
+}
+
+.tagName {
+  line-height: 1;
+}
+
+.tagCount {
+  font-size: 20rpx;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.itemRankList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.itemRankRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-light;
+  border-radius: $radius-md;
+}
+
+.itemRankIndex {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  flex-shrink: 0;
+
+  &.rank1 {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: $color-text-white;
+    box-shadow: 0 4rpx 8rpx rgba(255, 165, 0, 0.3);
+  }
+
+  &.rank2 {
+    background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
+    color: $color-text-white;
+  }
+
+  &.rank3 {
+    background: linear-gradient(135deg, #CD7F32, #B87333);
+    color: $color-text-white;
+  }
+
+  &.rankOther {
+    background: $color-primary-bg;
+    color: $color-text-secondary;
+  }
+}
+
+.itemIcon {
+  font-size: $font-size-xl;
+  flex-shrink: 0;
+}
+
+.itemName {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.itemUsage {
+  font-size: $font-size-xs;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}

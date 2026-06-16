@@ -62,7 +62,11 @@ const MinePage: React.FC = () => {
 
   const handleMenuClick = (item: typeof menuItems[0]) => {
     console.log('[MinePage] Click menu item:', item.text);
-    Taro.showToast({ title: `${item.text}功能开发中`, icon: 'none' });
+    if (item.text === '穿搭数据') {
+      Taro.navigateTo({ url: '/pages/outfit-stats/index' });
+    } else {
+      Taro.showToast({ title: `${item.text}功能开发中`, icon: 'none' });
+    }
   };
 
   return (

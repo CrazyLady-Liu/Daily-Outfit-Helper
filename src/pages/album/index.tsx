@@ -8,7 +8,7 @@ import { useGlobalLoading } from '@/hooks/useGlobalLoading';
 import { OutfitPhoto } from '@/types';
 import { useAppStore } from '@/store/useAppStore';
 import { mockQuickTags } from '@/data/tags';
-import { delay, generateId } from '@/utils';
+import { delay, generateId, getOutfitImage } from '@/utils';
 import styles from './index.module.scss';
 import classnames from 'classnames';
 
@@ -54,7 +54,7 @@ const AlbumPage: React.FC = () => {
     await delay(1500);
     const newPhoto: OutfitPhoto = {
       id: generateId(),
-      image: `https://picsum.photos/id/${100 + Math.floor(Math.random() * 50)}/500/700`,
+      image: getOutfitImage(100 + Math.floor(Math.random() * 50), 500, 700),
       description: '新上传的穿搭，快来看看吧~',
       date: new Date().toISOString().split('T')[0],
       tags: ['日常'],

@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '@/styles/variables.scss' as *;
 
 .loadingContainer {
@@ -177,7 +178,7 @@
   background: linear-gradient(
     90deg,
     $color-bg-hover 25%,
-    lighten($color-bg-hover, 4) 50%,
+    color.adjust($color-bg-hover, $lightness: 4%) 50%,
     $color-bg-hover 75%
   );
   background-size: 200% 100%;

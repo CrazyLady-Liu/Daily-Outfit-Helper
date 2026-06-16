@@ -3,6 +3,7 @@ import { OutfitPhoto, ScoreRecord, StyleTag, UserInfo } from '@/types';
 import { mockOutfitPhotos } from '@/data/outfits';
 import { mockScoreRecords as mockScores } from '@/data/scores';
 import { mockStyleTags } from '@/data/tags';
+import { getAvatarImage } from '@/utils';
 
 interface AppState {
   outfitPhotos: OutfitPhoto[];
@@ -22,7 +23,7 @@ export const useAppStore = create<AppState>((set) => ({
   styleTags: mockStyleTags,
   userInfo: {
     nickname: '时尚小达人',
-    avatar: 'https://picsum.photos/id/64/200/200',
+    avatar: getAvatarImage(64),
     totalOutfits: mockOutfitPhotos.length,
     totalScores: mockScores.length,
     favoriteStyle: '休闲风'

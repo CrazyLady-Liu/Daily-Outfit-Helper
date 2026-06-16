@@ -1,9 +1,10 @@
 import { ScoreRecord } from '@/types';
+import { getOutfitImage } from '@/utils';
 
 export const mockScoreRecords: ScoreRecord[] = [
   {
     id: 's1',
-    image: 'https://picsum.photos/id/103/500/700',
+    image: getOutfitImage(103, 500, 700),
     score: 88,
     overallComment: '整体搭配非常和谐，色彩搭配温柔舒适，是一套很成功的日常穿搭！',
     details: [
@@ -21,7 +22,7 @@ export const mockScoreRecords: ScoreRecord[] = [
   },
   {
     id: 's2',
-    image: 'https://picsum.photos/id/119/500/700',
+    image: getOutfitImage(119, 500, 700),
     score: 92,
     overallComment: '非常出色的通勤穿搭！专业干练又不失女性魅力，堪称职场范本。',
     details: [
@@ -39,7 +40,7 @@ export const mockScoreRecords: ScoreRecord[] = [
   },
   {
     id: 's3',
-    image: 'https://picsum.photos/id/220/500/700',
+    image: getOutfitImage(220, 500, 700),
     score: 78,
     overallComment: '甜酷风格很有个性，但整体搭配还有提升空间，继续加油！',
     details: [
