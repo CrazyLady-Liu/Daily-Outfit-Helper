@@ -18,15 +18,15 @@ interface AppState {
 }
 
 export const useAppStore = create<AppState>((set) => ({
-  outfitPhotos: mockOutfitPhotos,
-  scoreRecords: mockScores,
+  outfitPhotos: [],
+  scoreRecords: [],
   styleTags: mockStyleTags,
   userInfo: {
     nickname: '时尚小达人',
     avatar: getAvatarImage(64),
-    totalOutfits: mockOutfitPhotos.length,
-    totalScores: mockScores.length,
-    favoriteStyle: '休闲风'
+    totalOutfits: 0,
+    totalScores: 0,
+    favoriteStyle: '暂无'
   },
   addOutfitPhoto: (photo) =>
     set((state) => ({

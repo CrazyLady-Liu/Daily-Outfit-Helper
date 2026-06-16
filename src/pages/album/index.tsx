@@ -72,10 +72,24 @@ const AlbumPage: React.FC = () => {
       success: async (res) => {
         console.log('[AlbumPage] Selected source:', res.tapIndex);
         try {
+          const chooseRes = await Taro.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: res.tapIndex === 0 ? ['camera'] : ['album']
+          });
+
+          if (!chooseRes.tempFilePaths || chooseRes.tempFilePaths.length === 0) {
+            Taro.showToast({ title: '请至少选择一张穿搭照片', icon: 'none' });
+            return;
+          }
+
           await withLoading('outfit-upload', performUpload);
           Taro.showToast({ title: '上传成功！', icon: 'success' });
         } catch (error) {
           console.error('[AlbumPage] Upload failed:', error);
+          if (error && (error as any).errMsg && (error as any).errMsg.includes('cancel')) {
+            return;
+          }
           Taro.showToast({ title: '上传失败，请重试', icon: 'none' });
         }
       }
