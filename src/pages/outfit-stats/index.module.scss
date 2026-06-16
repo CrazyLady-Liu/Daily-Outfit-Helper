@@ -109,6 +109,10 @@
   color: $color-text-primary;
   line-height: 1.2;
   margin-bottom: 4rpx;
+
+  &.metricValueEmpty {
+    color: $color-text-disabled;
+  }
 }
 
 .metricLabel {
@@ -157,6 +161,57 @@
   display: flex;
   gap: $spacing-lg;
   align-items: center;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xl 0;
+}
+
+.emptyIcon {
+  font-size: 80rpx;
+  margin-bottom: $spacing-md;
+  opacity: 0.6;
+}
+
+.emptyText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  text-align: center;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-lg;
+}
+
+.emptyBtn {
+  padding: $spacing-sm $spacing-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  border-radius: $radius-button;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.85;
+    transform: scale(0.97);
+  }
+}
+
+.emptyBtnText {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
+
+.emptyInline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg 0;
+}
+
+.emptyInlineText {
+  font-size: $font-size-sm;
+  color: $color-text-disabled;
 }
 
 .pieChart {

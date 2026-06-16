@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView } from '@tarojs/components';
+import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import { useAppStore } from '@/store/useAppStore';
 import { OutfitPhoto, ScoreRecord } from '@/types';
@@ -168,17 +169,23 @@ const OutfitStatsPage: React.FC = () => {
       <View className={styles.coreMetrics}>
         <View className={classnames(styles.metricCard, styles.metricOutfit)}>
           <Text className={styles.metricIcon}>👗</Text>
-          <Text className={styles.metricValue}>{filteredOutfits.length}</Text>
+          <Text className={classnames(styles.metricValue, filteredOutfits.length === 0 && styles.metricValueEmpty)}>
+            {filteredOutfits.length === 0 ? '--' : filteredOutfits.length}
+          </Text>
           <Text className={styles.metricLabel}>穿搭记录</Text>
         </View>
         <View className={classnames(styles.metricCard, styles.metricScore)}>
           <Text className={styles.metricIcon}>⭐</Text>
-          <Text className={styles.metricValue}>{filteredScores.length}</Text>
+          <Text className={classnames(styles.metricValue, filteredScores.length === 0 && styles.metricValueEmpty)}>
+            {filteredScores.length === 0 ? '--' : filteredScores.length}
+          </Text>
           <Text className={styles.metricLabel}>AI打分</Text>
         </View>
         <View className={classnames(styles.metricCard, styles.metricTag)}>
           <Text className={styles.metricIcon}>🏷️</Text>
-          <Text className={styles.metricValue}>{uniqueTagsCount}</Text>
+          <Text className={classnames(styles.metricValue, filteredOutfits.length === 0 && styles.metricValueEmpty)}>
+            {filteredOutfits.length === 0 ? '--' : uniqueTagsCount}
+          </Text>
           <Text className={styles.metricLabel}>使用标签</Text>
         </View>
       </View>
@@ -193,32 +200,45 @@ const OutfitStatsPage: React.FC = () => {
             <Text className={styles.sectionExtra}>共 {styleDistribution.length} 种风格</Text>
           </View>
 
-          <View className={styles.styleDistribution}>
-            <View className={styles.pieChart} style={{ background: pieConicGradient }}>
-              <View className={styles.pieCenter}>
-                <Text className={styles.pieCenterValue}>{filteredOutfits.length}</Text>
-                <Text className={styles.pieCenterLabel}>总数</Text>
+          {styleDistribution.length === 0 ? (
+            <View className={styles.emptyState}>
+              <Text className={styles.emptyIcon}>🎨</Text>
+              <Text className={styles.emptyText}>暂无穿搭风格数据，快去创建穿搭记录吧</Text>
+              <View
+                className={styles.emptyBtn}
+                onClick={() => Taro.switchTab({ url: '/pages/album/index' })}
+              >
+                <Text className={styles.emptyBtnText}>去记录穿搭</Text>
               </View>
             </View>
-
-            <View className={styles.styleRankList}>
-              {styleDistribution.slice(0, 5).map((item, index) => (
-                <View key={item.name} className={styles.styleRankItem}>
-                  <View className={classnames(styles.rankIndex, getRankIndexClass(index))}>
-                    {index + 1}
-                  </View>
-                  <Text className={styles.styleName}>{item.name}</Text>
-                  <View className={styles.styleBarWrap}>
-                    <View
-                      className={styles.styleBar}
-                      style={{ width: `${item.percent}%`, background: item.color }}
-                    />
-                  </View>
-                  <Text className={styles.styleCount}>{item.count}次</Text>
+          ) : (
+            <View className={styles.styleDistribution}>
+              <View className={styles.pieChart} style={{ background: pieConicGradient }}>
+                <View className={styles.pieCenter}>
+                  <Text className={styles.pieCenterValue}>{filteredOutfits.length}</Text>
+                  <Text className={styles.pieCenterLabel}>总数</Text>
                 </View>
-              ))}
+              </View>
+
+              <View className={styles.styleRankList}>
+                {styleDistribution.slice(0, 5).map((item, index) => (
+                  <View key={item.name} className={styles.styleRankItem}>
+                    <View className={classnames(styles.rankIndex, getRankIndexClass(index))}>
+                      {index + 1}
+                    </View>
+                    <Text className={styles.styleName}>{item.name}</Text>
+                    <View className={styles.styleBarWrap}>
+                      <View
+                        className={styles.styleBar}
+                        style={{ width: `${item.percent}%`, background: item.color }}
+                      />
+                    </View>
+                    <Text className={styles.styleCount}>{item.count}次</Text>
+                  </View>
+                ))}
+              </View>
             </View>
-          </View>
+          )}
         </View>
       </View>
 
@@ -232,57 +252,70 @@ const OutfitStatsPage: React.FC = () => {
             <Text className={styles.sectionExtra}>基于 {filteredScores.length} 次评分</Text>
           </View>
 
-          <View className={styles.scoreSection}>
-            <View className={styles.avgScoreCard}>
+          {filteredScores.length === 0 ? (
+            <View className={styles.emptyState}>
+              <Text className={styles.emptyIcon}>🤖</Text>
+              <Text className={styles.emptyText}>暂无AI打分数据，快去给穿搭打个分吧</Text>
               <View
-                className={styles.avgScoreCircle}
-                style={{ ['--progress' as any]: `${avgScore}%` }}
+                className={styles.emptyBtn}
+                onClick={() => Taro.switchTab({ url: '/pages/score/index' })}
               >
-                <View className={styles.avgScoreInner}>
-                  <Text className={styles.avgScoreValue}>{avgScore}</Text>
-                  <Text className={styles.avgScoreLabel}>平均分</Text>
-                </View>
-              </View>
-              <View className={styles.avgScoreInfo}>
-                <Text className={styles.avgScoreTitle}>
-                  {avgScore >= 90
-                    ? '时尚达人 🌟'
-                    : avgScore >= 80
-                    ? '品味出众 ✨'
-                    : avgScore >= 70
-                    ? '稳步提升 💪'
-                    : '继续加油 🎯'}
-                </Text>
-                <Text className={styles.avgScoreDesc}>
-                  {avgScore >= 90
-                    ? '你的穿搭品味非常出色，继续保持这份时尚敏感度！'
-                    : avgScore >= 80
-                    ? '整体搭配很和谐，在细节上再花点心思会更完美~'
-                    : avgScore >= 70
-                    ? '穿搭有一定的个人风格，多尝试不同搭配会有惊喜！'
-                    : '每一次尝试都是进步，期待看到你的蜕变！'}
-                </Text>
+                <Text className={styles.emptyBtnText}>去打分</Text>
               </View>
             </View>
-
-            <View className={styles.scoreDistribution}>
-              {scoreDistribution.map((range) => (
-                <View key={range.label} className={styles.distributionItem}>
-                  <Text className={styles.distributionLabel}>{range.label}</Text>
-                  <View className={styles.distributionBarWrap}>
-                    <View
-                      className={styles.distributionBar}
-                      style={{ width: `${Math.max(range.percent, range.count > 0 ? 15 : 0)}%` }}
-                    >
-                      {range.count > 0 && (
-                        <Text className={styles.distributionValue}>{range.count}</Text>
-                      )}
-                    </View>
+          ) : (
+            <View className={styles.scoreSection}>
+              <View className={styles.avgScoreCard}>
+                <View
+                  className={styles.avgScoreCircle}
+                  style={{ ['--progress' as any]: `${avgScore}%` }}
+                >
+                  <View className={styles.avgScoreInner}>
+                    <Text className={styles.avgScoreValue}>{avgScore}</Text>
+                    <Text className={styles.avgScoreLabel}>平均分</Text>
                   </View>
                 </View>
-              ))}
+                <View className={styles.avgScoreInfo}>
+                  <Text className={styles.avgScoreTitle}>
+                    {avgScore >= 90
+                      ? '时尚达人 🌟'
+                      : avgScore >= 80
+                      ? '品味出众 ✨'
+                      : avgScore >= 70
+                      ? '稳步提升 💪'
+                      : '继续加油 🎯'}
+                  </Text>
+                  <Text className={styles.avgScoreDesc}>
+                    {avgScore >= 90
+                      ? '你的穿搭品味非常出色，继续保持这份时尚敏感度！'
+                      : avgScore >= 80
+                      ? '整体搭配很和谐，在细节上再花点心思会更完美~'
+                      : avgScore >= 70
+                      ? '穿搭有一定的个人风格，多尝试不同搭配会有惊喜！'
+                      : '每一次尝试都是进步，期待看到你的蜕变！'}
+                  </Text>
+                </View>
+              </View>
+
+              <View className={styles.scoreDistribution}>
+                {scoreDistribution.map((range) => (
+                  <View key={range.label} className={styles.distributionItem}>
+                    <Text className={styles.distributionLabel}>{range.label}</Text>
+                    <View className={styles.distributionBarWrap}>
+                      <View
+                        className={styles.distributionBar}
+                        style={{ width: `${Math.max(range.percent, range.count > 0 ? 15 : 0)}%` }}
+                      >
+                        {range.count > 0 && (
+                          <Text className={styles.distributionValue}>{range.count}</Text>
+                        )}
+                      </View>
+                    </View>
+                  </View>
+                ))}
+              </View>
             </View>
-          </View>
+          )}
         </View>
       </View>
 
@@ -302,17 +335,23 @@ const OutfitStatsPage: React.FC = () => {
                 <Text className={styles.rankBlockIcon}>🏷️</Text>
                 高频标签
               </Text>
-              <View className={styles.tagCloud}>
-                {tagRanking.map((tag, index) => (
-                  <View
-                    key={tag.name}
-                    className={classnames(styles.tagRankItem, getRankClass(index))}
-                  >
-                    <Text className={styles.tagName}>{tag.name}</Text>
-                    <Text className={styles.tagCount}>×{tag.count}</Text>
-                  </View>
-                ))}
-              </View>
+              {tagRanking.length === 0 ? (
+                <View className={styles.emptyInline}>
+                  <Text className={styles.emptyInlineText}>暂无标签使用数据</Text>
+                </View>
+              ) : (
+                <View className={styles.tagCloud}>
+                  {tagRanking.map((tag, index) => (
+                    <View
+                      key={tag.name}
+                      className={classnames(styles.tagRankItem, getRankClass(index))}
+                    >
+                      <Text className={styles.tagName}>{tag.name}</Text>
+                      <Text className={styles.tagCount}>×{tag.count}</Text>
+                    </View>
+                  ))}
+                </View>
+              )}
             </View>
 
             <View className={styles.rankBlock}>
@@ -320,18 +359,24 @@ const OutfitStatsPage: React.FC = () => {
                 <Text className={styles.rankBlockIcon}>👚</Text>
                 高频单品
               </Text>
-              <View className={styles.itemRankList}>
-                {mockItems.map((item, index) => (
-                  <View key={item.name} className={styles.itemRankRow}>
-                    <View className={classnames(styles.itemRankIndex, getRankIndexClass(index))}>
-                      {index + 1}
+              {filteredOutfits.length === 0 ? (
+                <View className={styles.emptyInline}>
+                  <Text className={styles.emptyInlineText}>暂无单品使用数据</Text>
+                </View>
+              ) : (
+                <View className={styles.itemRankList}>
+                  {mockItems.map((item, index) => (
+                    <View key={item.name} className={styles.itemRankRow}>
+                      <View className={classnames(styles.itemRankIndex, getRankIndexClass(index))}>
+                        {index + 1}
+                      </View>
+                      <Text className={styles.itemIcon}>{item.icon}</Text>
+                      <Text className={styles.itemName}>{item.name}</Text>
+                      <Text className={styles.itemUsage}>{item.count}次</Text>
                     </View>
-                    <Text className={styles.itemIcon}>{item.icon}</Text>
-                    <Text className={styles.itemName}>{item.name}</Text>
-                    <Text className={styles.itemUsage}>{item.count}次</Text>
-                  </View>
-                ))}
-              </View>
+                  ))}
+                </View>
+              )}
             </View>
           </View>
         </View>
