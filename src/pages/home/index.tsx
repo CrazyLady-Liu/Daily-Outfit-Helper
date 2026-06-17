@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, ScrollView } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import Loading, { SceneLoading } from '@/components/Loading';
@@ -15,20 +15,23 @@ import styles from './index.module.scss';
 
 const HomePage: React.FC = () => {
   const { withLoading, isLoading } = useGlobalLoading();
-  const { weather, weatherLoading, weatherError, loadWeather, loadWeatherByLocation } = useAppStore();
+  const { weather, weatherError, loadWeather, loadWeatherByLocation } = useAppStore();
   const [recommendations, setRecommendations] = useState<OutfitRecommend[]>([]);
   const [recommendError, setRecommendError] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [cityPickerVisible, setCityPickerVisible] = useState(false);
-  const [initialized, setInitialized] = useState(false);
+  const initializedRef = useRef(false);
+  const loadingLockRef = useRef(false);
 
-  const loadRecommendations = async () => {
+  const loadRecommendations = useCallback(async () => {
     setRecommendError(false);
     setRecommendations(mockRecommendations);
-  };
+  }, []);
 
   const loadAllData = useCallback(async () => {
-    console.log('[HomePage] Loading all data via global Loading...');
+    if (loadingLockRef.current) return;
+    loadingLockRef.current = true;
+    console.log('[HomePage] Loading all data...');
     try {
       await Promise.all([
         withLoading('weather', async () => {
@@ -48,45 +51,55 @@ const HomePage: React.FC = () => {
       ]);
     } catch (error) {
       console.error('[HomePage] Critical load error:', error);
+    } finally {
+      loadingLockRef.current = false;
     }
-  }, [loadRecommendations, loadWeather, loadWeatherByLocation, withLoading]);
+  }, [withLoading, loadWeather, loadWeatherByLocation, loadRecommendations]);
 
   useEffect(() => {
-    if (!initialized) {
-      setInitialized(true);
+    if (!initializedRef.current) {
+      initializedRef.current = true;
       loadAllData();
     }
-  }, [initialized, loadAllData]);
+  }, [loadAllData]);
 
-  const onRefresh = async () => {
+  const onRefresh = useCallback(async () => {
+    if (loadingLockRef.current) return;
     console.log('[HomePage] Pull down refresh');
     setRefreshing(true);
     Taro.showNavigationBarLoading();
-    await loadAllData();
-    Taro.hideNavigationBarLoading();
-    Taro.stopPullDownRefresh();
-    setRefreshing(false);
-  };
+    try {
+      await loadAllData();
+    } finally {
+      Taro.hideNavigationBarLoading();
+      Taro.stopPullDownRefresh();
+      setRefreshing(false);
+    }
+  }, [loadAllData]);
+
+  const onRefreshRef = useRef(onRefresh);
+  onRefreshRef.current = onRefresh;
 
   useEffect(() => {
-    Taro.eventCenter.on('__taroPullDownRefresh', onRefresh);
+    const handler = () => onRefreshRef.current();
+    Taro.eventCenter.on('__taroPullDownRefresh', handler);
     return () => {
-      Taro.eventCenter.off('__taroPullDownRefresh', onRefresh);
+      Taro.eventCenter.off('__taroPullDownRefresh', handler);
     };
-  }, [onRefresh]);
+  }, []);
 
   const handleCardClick = (item: OutfitRecommend) => {
     console.log('[HomePage] Click recommend item:', item.id);
     Taro.navigateTo({ url: '/pages/recommend-detail/index' });
   };
 
-  const handleReloadWeather = async () => {
+  const handleReloadWeather = useCallback(async () => {
     console.log('[HomePage] Manual reload weather');
     const hasWeather = useAppStore.getState().weather;
     await withLoading('weather', () =>
       hasWeather ? loadWeather() : loadWeatherByLocation()
     );
-  };
+  }, [withLoading, loadWeather, loadWeatherByLocation]);
 
   const handleBrowseRecommend = () => {
     console.log('[HomePage] Browse all recommendations');
@@ -103,10 +116,10 @@ const HomePage: React.FC = () => {
       await withLoading('weather', () => loadWeather(city));
       Taro.showToast({ title: `已切换到${city.name}`, icon: 'success' });
     },
-    [loadWeather, withLoading]
+    [withLoading, loadWeather]
   );
 
-  const getFilteredRecommendations = (weatherData: WeatherData | null): OutfitRecommend[] => {
+  const getFilteredRecommendations = useCallback((weatherData: WeatherData | null): OutfitRecommend[] => {
     if (!weatherData) return mockRecommendations;
     const temp = weatherData.temperature;
     const weatherType = weatherData.weather;
@@ -124,7 +137,7 @@ const HomePage: React.FC = () => {
       }
       return item.weatherType === weatherType || item.weatherType === '多云';
     }).slice(0, 6);
-  };
+  }, []);
 
   const displayRecommendations = weather ? getFilteredRecommendations(weather) : recommendations;
 

@@ -31,6 +31,8 @@ interface AppState {
 const STORAGE_KEY_RECENT = 'recent_cities';
 const MAX_RECENT = 5;
 
+let _weatherRequestLock = false;
+
 const loadRecentCities = (): CityInfo[] => {
   try {
     const data = Taro.getStorageSync(STORAGE_KEY_RECENT);
@@ -100,6 +102,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
 
   loadWeather: async (city) => {
+    if (_weatherRequestLock) return;
+    _weatherRequestLock = true;
     set({ weatherLoading: true, weatherError: null });
     try {
       const targetCity = city || get().currentCity;
@@ -115,10 +119,13 @@ export const useAppStore = create<AppState>((set, get) => ({
       set({ weatherError: error instanceof Error ? error.message : '获取天气失败' });
     } finally {
       set({ weatherLoading: false });
+      _weatherRequestLock = false;
     }
   },
 
   loadWeatherByLocation: async () => {
+    if (_weatherRequestLock) return;
+    _weatherRequestLock = true;
     set({ weatherLoading: true, weatherError: null });
     try {
       const weatherData = await fetchWeatherByLocation();
@@ -131,6 +138,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       set({ weatherError: error instanceof Error ? error.message : '获取定位天气失败' });
     } finally {
       set({ weatherLoading: false });
+      _weatherRequestLock = false;
     }
   },
 
