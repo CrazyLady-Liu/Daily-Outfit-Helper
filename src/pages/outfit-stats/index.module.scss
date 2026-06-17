@@ -321,114 +321,232 @@
 .scoreSection {
   display: flex;
   flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.keyMetrics {
+  display: flex;
   gap: $spacing-md;
 }
 
-.avgScoreCard {
-  display: flex;
-  align-items: center;
-  gap: $spacing-lg;
-  padding: $spacing-md;
-  background: linear-gradient(135deg, #FFF8E7 0%, #FFFFFF 100%);
+.keyMetricItem {
+  flex: 1;
+  background: $color-bg-light;
   border-radius: $radius-md;
-}
-
-.avgScoreCircle {
-  width: 140rpx;
-  height: 140rpx;
-  border-radius: 50%;
-  background: conic-gradient($color-accent var(--progress, 0%), #FFEFD5 0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.avgScoreInner {
-  width: 108rpx;
-  height: 108rpx;
-  border-radius: 50%;
-  background: $color-bg-card;
+  padding: $spacing-md;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 4rpx;
+  transition: all $transition-base;
+
+  &:active {
+    background: $color-primary-bg;
+  }
 }
 
-.avgScoreValue {
+.keyMetricLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.keyMetricValue {
   font-size: $font-size-xxl;
   font-weight: $font-weight-bold;
-  color: $color-accent;
-  line-height: 1;
+  line-height: 1.2;
+
+  &.highest {
+    color: #52C41A;
+  }
+
+  &.lowest {
+    color: #FF6B6B;
+  }
+
+  &.average {
+    color: $color-accent;
+  }
 }
 
-.avgScoreLabel {
+.keyMetricHint {
   font-size: 20rpx;
-  color: $color-text-tertiary;
-  margin-top: 4rpx;
+  color: $color-primary;
 }
 
-.avgScoreInfo {
+.barChartWrap {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: $spacing-sm;
+  height: 280rpx;
+  padding: 0 $spacing-xs;
+}
+
+.barCol {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
 }
 
-.avgScoreTitle {
+.barCount {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xs;
+  height: 32rpx;
+  display: flex;
+  align-items: flex-end;
+}
+
+.barTrack {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.barFill {
+  width: 80%;
+  min-height: 8rpx;
+  border-radius: $radius-sm $radius-sm 0 0;
+  transition: all $transition-base;
+
+  &.barFillActive {
+    width: 100%;
+    opacity: 0.85;
+    box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+  }
+}
+
+.barLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: $spacing-xs;
+  transition: all $transition-base;
+
+  &.barLabelActive {
+    color: $color-text-primary;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.barHint {
+  font-size: 20rpx;
+  color: $color-text-disabled;
+  text-align: center;
+}
+
+.rangePopup {
+  background: $color-bg-light;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rangePopupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.rangePopupTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.rangePopupClose {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $color-divider;
+}
+
+.rangePopupCloseText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.rangePopupEmpty {
+  font-size: $font-size-sm;
+  color: $color-text-disabled;
+  text-align: center;
+  padding: $spacing-lg 0;
+}
+
+.rangePopupList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.rangePopupItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-card;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+
+  &:active {
+    background: $color-primary-bg;
+  }
+}
+
+.rangePopupImg {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+}
+
+.rangePopupInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.rangePopupScore {
   font-size: $font-size-md;
   font-weight: $font-weight-semibold;
   color: $color-text-primary;
-  margin-bottom: $spacing-xs;
 }
 
-.avgScoreDesc {
+.rangePopupDate {
   font-size: $font-size-xs;
-  color: $color-text-secondary;
-  line-height: 1.6;
+  color: $color-text-tertiary;
 }
 
-.scoreDistribution {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-}
-
-.distributionItem {
-  display: flex;
-  align-items: center;
-  gap: $spacing-sm;
-}
-
-.distributionLabel {
-  font-size: $font-size-xs;
-  color: $color-text-secondary;
-  width: 80rpx;
-  flex-shrink: 0;
-}
-
-.distributionBarWrap {
-  flex: 1;
-  height: 24rpx;
-  background: $color-divider;
-  border-radius: $radius-round;
-  overflow: hidden;
-}
-
-.distributionBar {
-  height: 100%;
-  border-radius: $radius-round;
-  background: linear-gradient(90deg, $color-primary, $color-primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 8rpx;
-  transition: width $transition-slow;
-  min-width: 40rpx;
-}
-
-.distributionValue {
-  font-size: 20rpx;
-  color: $color-text-white;
-  font-weight: $font-weight-semibold;
+.rangePopupArrow {
+  font-size: $font-size-lg;
+  color: $color-text-tertiary;
 }
 
 .tagsRanking {

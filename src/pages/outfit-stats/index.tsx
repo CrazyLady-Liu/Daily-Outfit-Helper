@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView } from '@tarojs/components';
+import React, { useState, useMemo, useCallback } from 'react';
+import { View, Text, ScrollView, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import { useAppStore } from '@/store/useAppStore';
@@ -7,6 +7,21 @@ import { OutfitPhoto, ScoreRecord } from '@/types';
 import styles from './index.module.scss';
 
 type TimeRange = 'week' | 'month' | 'year' | 'all';
+
+interface ScoreRange {
+  label: string;
+  min: number;
+  max: number;
+  color: string;
+}
+
+const scoreRanges: ScoreRange[] = [
+  { label: '0-20', min: 0, max: 20, color: '#FF6B6B' },
+  { label: '21-40', min: 21, max: 40, color: '#FF8E53' },
+  { label: '41-60', min: 41, max: 60, color: '#FFD166' },
+  { label: '61-80', min: 61, max: 80, color: '#A8D8EA' },
+  { label: '81-100', min: 81, max: 100, color: '#52C41A' }
+];
 
 const timeFilterOptions: { key: TimeRange; label: string }[] = [
   { key: 'week', label: '本周' },
@@ -99,14 +114,18 @@ const OutfitStatsPage: React.FC = () => {
     return Math.round(total / filteredScores.length);
   }, [filteredScores]);
 
+  const highestScore = useMemo(() => {
+    if (filteredScores.length === 0) return null;
+    return filteredScores.reduce((max, s) => (s.score > max.score ? s : max), filteredScores[0]);
+  }, [filteredScores]);
+
+  const lowestScore = useMemo(() => {
+    if (filteredScores.length === 0) return null;
+    return filteredScores.reduce((min, s) => (s.score < min.score ? s : min), filteredScores[0]);
+  }, [filteredScores]);
+
   const scoreDistribution = useMemo(() => {
-    const ranges = [
-      { label: '60分以下', min: 0, max: 59, count: 0 },
-      { label: '60-69', min: 60, max: 69, count: 0 },
-      { label: '70-79', min: 70, max: 79, count: 0 },
-      { label: '80-89', min: 80, max: 89, count: 0 },
-      { label: '90-100', min: 90, max: 100, count: 0 }
-    ];
+    const ranges = scoreRanges.map((r) => ({ ...r, count: 0 }));
     filteredScores.forEach((s) => {
       const range = ranges.find((r) => s.score >= r.min && s.score <= r.max);
       if (range) range.count++;
@@ -117,6 +136,26 @@ const OutfitStatsPage: React.FC = () => {
       percent: (r.count / maxCount) * 100
     }));
   }, [filteredScores]);
+
+  const [activeRangeIndex, setActiveRangeIndex] = useState<number | null>(null);
+
+  const rangeScores = useMemo(() => {
+    if (activeRangeIndex === null) return [];
+    const range = scoreRanges[activeRangeIndex];
+    return filteredScores.filter((s) => s.score >= range.min && s.score <= range.max);
+  }, [activeRangeIndex, filteredScores]);
+
+  const handleBarClick = useCallback((index: number) => {
+    setActiveRangeIndex((prev) => (prev === index ? null : index));
+  }, []);
+
+  const handleClosePopup = useCallback(() => {
+    setActiveRangeIndex(null);
+  }, []);
+
+  const handleScoreDetailClick = useCallback((id: string) => {
+    Taro.navigateTo({ url: `/pages/score-result/index?id=${id}` });
+  }, []);
 
   const tagRanking = useMemo(() => {
     const map = new Map<string, number>();
@@ -265,55 +304,110 @@ const OutfitStatsPage: React.FC = () => {
             </View>
           ) : (
             <View className={styles.scoreSection}>
-              <View className={styles.avgScoreCard}>
+              <View className={styles.keyMetrics}>
                 <View
-                  className={styles.avgScoreCircle}
-                  style={{ ['--progress' as any]: `${avgScore}%` }}
+                  className={styles.keyMetricItem}
+                  onClick={() => highestScore && handleScoreDetailClick(highestScore.id)}
                 >
-                  <View className={styles.avgScoreInner}>
-                    <Text className={styles.avgScoreValue}>{avgScore}</Text>
-                    <Text className={styles.avgScoreLabel}>平均分</Text>
-                  </View>
-                </View>
-                <View className={styles.avgScoreInfo}>
-                  <Text className={styles.avgScoreTitle}>
-                    {avgScore >= 90
-                      ? '时尚达人 🌟'
-                      : avgScore >= 80
-                      ? '品味出众 ✨'
-                      : avgScore >= 70
-                      ? '稳步提升 💪'
-                      : '继续加油 🎯'}
+                  <Text className={styles.keyMetricLabel}>🏆 最高分</Text>
+                  <Text className={classnames(styles.keyMetricValue, styles.highest)}>
+                    {highestScore?.score ?? '--'}
                   </Text>
-                  <Text className={styles.avgScoreDesc}>
-                    {avgScore >= 90
-                      ? '你的穿搭品味非常出色，继续保持这份时尚敏感度！'
-                      : avgScore >= 80
-                      ? '整体搭配很和谐，在细节上再花点心思会更完美~'
-                      : avgScore >= 70
-                      ? '穿搭有一定的个人风格，多尝试不同搭配会有惊喜！'
-                      : '每一次尝试都是进步，期待看到你的蜕变！'}
+                  {highestScore && (
+                    <Text className={styles.keyMetricHint}>点击查看 ›</Text>
+                  )}
+                </View>
+                <View
+                  className={styles.keyMetricItem}
+                  onClick={() => lowestScore && handleScoreDetailClick(lowestScore.id)}
+                >
+                  <Text className={styles.keyMetricLabel}>📉 最低分</Text>
+                  <Text className={classnames(styles.keyMetricValue, styles.lowest)}>
+                    {lowestScore?.score ?? '--'}
+                  </Text>
+                  {lowestScore && (
+                    <Text className={styles.keyMetricHint}>点击查看 ›</Text>
+                  )}
+                </View>
+                <View className={styles.keyMetricItem}>
+                  <Text className={styles.keyMetricLabel}>📊 平均分</Text>
+                  <Text className={classnames(styles.keyMetricValue, styles.average)}>
+                    {avgScore || '--'}
                   </Text>
                 </View>
               </View>
 
-              <View className={styles.scoreDistribution}>
-                {scoreDistribution.map((range) => (
-                  <View key={range.label} className={styles.distributionItem}>
-                    <Text className={styles.distributionLabel}>{range.label}</Text>
-                    <View className={styles.distributionBarWrap}>
-                      <View
-                        className={styles.distributionBar}
-                        style={{ width: `${Math.max(range.percent, range.count > 0 ? 15 : 0)}%` }}
-                      >
-                        {range.count > 0 && (
-                          <Text className={styles.distributionValue}>{range.count}</Text>
-                        )}
+              <View className={styles.barChartWrap}>
+                <View className={styles.barChart}>
+                  {scoreDistribution.map((range, index) => (
+                    <View
+                      key={range.label}
+                      className={styles.barCol}
+                      onClick={() => handleBarClick(index)}
+                    >
+                      <Text className={styles.barCount}>{range.count > 0 ? range.count : ''}</Text>
+                      <View className={styles.barTrack}>
+                        <View
+                          className={classnames(
+                            styles.barFill,
+                            activeRangeIndex === index && styles.barFillActive
+                          )}
+                          style={{
+                            height: `${Math.max(range.percent, range.count > 0 ? 8 : 0)}%`,
+                            background: range.color
+                          }}
+                        />
                       </View>
+                      <Text
+                        className={classnames(
+                          styles.barLabel,
+                          activeRangeIndex === index && styles.barLabelActive
+                        )}
+                      >
+                        {range.label}
+                      </Text>
+                    </View>
+                  ))}
+                </View>
+                <Text className={styles.barHint}>点击柱状图查看区间详情</Text>
+              </View>
+
+              {activeRangeIndex !== null && (
+                <View className={styles.rangePopup}>
+                  <View className={styles.rangePopupHeader}>
+                    <Text className={styles.rangePopupTitle}>
+                      {scoreRanges[activeRangeIndex].label}分 · {rangeScores.length}条记录
+                    </Text>
+                    <View className={styles.rangePopupClose} onClick={handleClosePopup}>
+                      <Text className={styles.rangePopupCloseText}>✕</Text>
                     </View>
                   </View>
-                ))}
-              </View>
+                  {rangeScores.length === 0 ? (
+                    <Text className={styles.rangePopupEmpty}>该区间暂无穿搭记录</Text>
+                  ) : (
+                    <ScrollView className={styles.rangePopupList} scrollY style={{ maxHeight: '400rpx' }}>
+                      {rangeScores.map((record) => (
+                        <View
+                          key={record.id}
+                          className={styles.rangePopupItem}
+                          onClick={() => handleScoreDetailClick(record.id)}
+                        >
+                          <Image
+                            className={styles.rangePopupImg}
+                            src={record.image}
+                            mode='aspectFill'
+                          />
+                          <View className={styles.rangePopupInfo}>
+                            <Text className={styles.rangePopupScore}>{record.score}分</Text>
+                            <Text className={styles.rangePopupDate}>{record.date}</Text>
+                          </View>
+                          <Text className={styles.rangePopupArrow}>›</Text>
+                        </View>
+                      ))}
+                    </ScrollView>
+                  )}
+                </View>
+              )}
             </View>
           )}
         </View>
