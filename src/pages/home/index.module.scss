@@ -56,13 +56,25 @@
   align-items: center;
 }
 
+.travelTipCard {
+  background: linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin: 0 $page-padding $spacing-lg;
+  display: flex;
+  align-items: flex-start;
+  border: 2rpx solid #D6ECFB;
+}
+
 .tipIcon {
   font-size: 48rpx;
   margin-right: $spacing-md;
+  flex-shrink: 0;
 }
 
 .tipContent {
   flex: 1;
+  min-width: 0;
 }
 
 .tipTitle {
@@ -75,6 +87,7 @@
 .tipDesc {
   font-size: $font-size-xs;
   color: $color-text-secondary;
+  line-height: 1.6;
 }
 
 .recommendGrid {

@@ -1,5 +1,24 @@
+export interface CityInfo {
+  name: string;
+  fullName?: string;
+  latitude?: number;
+  longitude?: number;
+  isLocation?: boolean;
+}
+
+export interface DayWeather {
+  day: string;
+  date?: string;
+  tempHigh: number;
+  tempLow: number;
+  weather: string;
+  icon: string;
+  wind?: string;
+  humidity?: number;
+}
+
 export interface WeatherData {
-  city: string;
+  city: CityInfo;
   temperature: number;
   feelsLike: number;
   weather: string;
@@ -7,6 +26,10 @@ export interface WeatherData {
   wind: string;
   icon: string;
   uvIndex: number;
+  today: DayWeather;
+  tomorrow: DayWeather;
+  weekWeather: DayWeather[];
+  updateTime?: string;
 }
 
 export interface OutfitRecommend {

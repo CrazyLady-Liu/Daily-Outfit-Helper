@@ -11,13 +11,32 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: $spacing-lg;
+}
+
+.cityRow {
+  display: flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  margin: -$spacing-xs;
+  border-radius: $radius-sm;
+  transition: background $transition-fast;
+
+  &:active {
+    background: rgba(255, 255, 255, 0.15);
+  }
 }
 
 .city {
   font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
+}
+
+.cityArrow {
+  font-size: 20rpx;
+  margin-left: $spacing-xs;
+  opacity: 0.8;
 }
 
 .weatherIcon {
@@ -91,6 +110,10 @@
   }
 }
 
+.weekItemTomorrow {
+  background: rgba(255, 255, 255, 0.15);
+}
+
 .weekDay {
   font-size: $font-size-xs;
   opacity: 0.8;
@@ -105,4 +128,70 @@
 .weekTemp {
   font-size: $font-size-xs;
   opacity: 0.9;
+}
+
+.tomorrowSection {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: $radius-md;
+}
+
+.tomorrowHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+}
+
+.tomorrowIcon {
+  font-size: 28rpx;
+  margin-right: $spacing-xs;
+}
+
+.tomorrowTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+}
+
+.tomorrowContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.tomorrowWeather {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tomorrowWeatherIcon {
+  font-size: 40rpx;
+}
+
+.tomorrowWeatherText {
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+}
+
+.tomorrowTempText {
+  display: block;
+  font-size: $font-size-xs;
+  opacity: 0.8;
+  margin-top: 2rpx;
+}
+
+.tomorrowTips {
+  font-size: $font-size-sm;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+.updateTime {
+  display: block;
+  text-align: center;
+  font-size: 20rpx;
+  opacity: 0.6;
+  margin-top: $spacing-md;
 }

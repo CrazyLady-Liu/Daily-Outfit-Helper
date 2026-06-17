@@ -12,6 +12,8 @@ export type LoadingScene =
   | 'user-info'
   | 'profile-edit'
   | 'profile-save'
+  | 'city-search'
+  | 'location'
   | 'global';
 
 export const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
@@ -26,6 +28,8 @@ export const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
   'user-info': '加载用户信息...',
   'profile-edit': '正在进入编辑页...',
   'profile-save': '正在保存...',
+  'city-search': '正在搜索城市...',
+  location: '正在定位中...',
   global: '加载中...'
 };
 
@@ -53,6 +57,8 @@ const createInitialStates = (): Record<LoadingScene, boolean> => ({
   'user-info': false,
   'profile-edit': false,
   'profile-save': false,
+  'city-search': false,
+  location: false,
   global: false
 } as Record<LoadingScene, boolean>);
 

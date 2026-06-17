@@ -1,44 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, ScrollView } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import Loading, { SceneLoading } from '@/components/Loading';
 import EmptyState from '@/components/EmptyState';
 import WeatherCard from '@/components/WeatherCard';
 import OutfitCard from '@/components/OutfitCard';
+import CityPicker from '@/components/CityPicker';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
-import { WeatherData, OutfitRecommend } from '@/types';
-import { mockWeather } from '@/data/weather';
+import { OutfitRecommend, CityInfo, WeatherData } from '@/types';
 import { mockRecommendations } from '@/data/outfits';
-import { delay } from '@/utils';
+import { getOutfitTips } from '@/data/weather';
+import { useAppStore } from '@/store/useAppStore';
 import styles from './index.module.scss';
 
 const HomePage: React.FC = () => {
   const { withLoading, isLoading } = useGlobalLoading();
-  const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [weatherError, setWeatherError] = useState(false);
+  const { weather, weatherLoading, weatherError, loadWeather, loadWeatherByLocation } = useAppStore();
   const [recommendations, setRecommendations] = useState<OutfitRecommend[]>([]);
   const [recommendError, setRecommendError] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-
-  const loadWeather = async () => {
-    setWeatherError(false);
-    await delay(800);
-    setWeather(mockWeather);
-  };
+  const [cityPickerVisible, setCityPickerVisible] = useState(false);
+  const [initialized, setInitialized] = useState(false);
 
   const loadRecommendations = async () => {
     setRecommendError(false);
-    await delay(500);
     setRecommendations(mockRecommendations);
   };
 
-  const loadAllData = async () => {
+  const loadAllData = useCallback(async () => {
     console.log('[HomePage] Loading all data via global Loading...');
     try {
       await Promise.all([
-        withLoading('weather', loadWeather).catch((e) => {
+        withLoading('weather', async () => {
+          const hasWeather = useAppStore.getState().weather;
+          if (!hasWeather) {
+            await loadWeatherByLocation();
+          } else {
+            await loadWeather();
+          }
+        }).catch((e) => {
           console.error('[HomePage] Weather load failed:', e);
-          setWeatherError(true);
         }),
         withLoading('recommend', loadRecommendations).catch((e) => {
           console.error('[HomePage] Recommendations load failed:', e);
@@ -48,11 +49,14 @@ const HomePage: React.FC = () => {
     } catch (error) {
       console.error('[HomePage] Critical load error:', error);
     }
-  };
+  }, [loadRecommendations, loadWeather, loadWeatherByLocation, withLoading]);
 
   useEffect(() => {
-    loadAllData();
-  }, []);
+    if (!initialized) {
+      setInitialized(true);
+      loadAllData();
+    }
+  }, [initialized, loadAllData]);
 
   const onRefresh = async () => {
     console.log('[HomePage] Pull down refresh');
@@ -69,7 +73,7 @@ const HomePage: React.FC = () => {
     return () => {
       Taro.eventCenter.off('__taroPullDownRefresh', onRefresh);
     };
-  }, []);
+  }, [onRefresh]);
 
   const handleCardClick = (item: OutfitRecommend) => {
     console.log('[HomePage] Click recommend item:', item.id);
@@ -78,13 +82,51 @@ const HomePage: React.FC = () => {
 
   const handleReloadWeather = async () => {
     console.log('[HomePage] Manual reload weather');
-    await withLoading('weather', loadWeather).catch(() => setWeatherError(true));
+    const hasWeather = useAppStore.getState().weather;
+    await withLoading('weather', () =>
+      hasWeather ? loadWeather() : loadWeatherByLocation()
+    );
   };
 
   const handleBrowseRecommend = () => {
     console.log('[HomePage] Browse all recommendations');
     Taro.showToast({ title: '正在加载全部推荐', icon: 'none' });
   };
+
+  const handleCityClick = () => {
+    setCityPickerVisible(true);
+  };
+
+  const handleCitySelect = useCallback(
+    async (city: CityInfo) => {
+      console.log('[HomePage] Select city:', city.name);
+      await withLoading('weather', () => loadWeather(city));
+      Taro.showToast({ title: `已切换到${city.name}`, icon: 'success' });
+    },
+    [loadWeather, withLoading]
+  );
+
+  const getFilteredRecommendations = (weatherData: WeatherData | null): OutfitRecommend[] => {
+    if (!weatherData) return mockRecommendations;
+    const temp = weatherData.temperature;
+    const weatherType = weatherData.weather;
+    return mockRecommendations.filter((item) => {
+      const tempRange = item.temperatureRange.replace(/°/g, '').split('-').map(Number);
+      if (tempRange.length === 2) {
+        const [low, high] = tempRange;
+        if (temp < low - 3 || temp > high + 3) return false;
+      }
+      if (
+        (weatherType.includes('雨') && item.weatherType !== '晴' && !item.tags.includes('防晒')) ||
+        (!weatherType.includes('雨') && !weatherType.includes('雪'))
+      ) {
+        return true;
+      }
+      return item.weatherType === weatherType || item.weatherType === '多云';
+    }).slice(0, 6);
+  };
+
+  const displayRecommendations = weather ? getFilteredRecommendations(weather) : recommendations;
 
   return (
     <ScrollView
@@ -109,7 +151,7 @@ const HomePage: React.FC = () => {
               onSecondaryButtonClick={handleBrowseRecommend}
             />
           ) : (
-            <WeatherCard weather={weather} />
+            <WeatherCard weather={weather} onCityClick={handleCityClick} />
           )}
         </SceneLoading>
       </View>
@@ -119,12 +161,24 @@ const HomePage: React.FC = () => {
         <View className={styles.tipContent}>
           <Text className={styles.tipTitle}>今日穿搭小贴士</Text>
           <Text className={styles.tipDesc}>
-            {weather
-              ? `${weather.temperature}°C ${weather.weather}，建议穿着轻薄透气的衣物，别忘了防晒哦~`
-              : '获取天气信息后查看穿搭建议'}
+            {weather ? getOutfitTips(weather) : '获取天气信息后查看穿搭建议'}
           </Text>
         </View>
       </View>
+
+      {weather && (
+        <View className={styles.travelTipCard}>
+          <Text className={styles.tipIcon}>✈️</Text>
+          <View className={styles.tipContent}>
+            <Text className={styles.tipTitle}>异地出行提醒</Text>
+            <Text className={styles.tipDesc}>
+              当前城市{weather.city.fullName || weather.city.name}
+              {weather.tomorrow ? `，明日${weather.tomorrow.weather} ${weather.tomorrow.tempLow}°~${weather.tomorrow.tempHigh}°` : ''}
+              ，点击上方城市名可切换查看其他城市穿搭。
+            </Text>
+          </View>
+        </View>
+      )}
 
       <View className={styles.section}>
         <View className={styles.sectionHeader}>
@@ -133,7 +187,7 @@ const HomePage: React.FC = () => {
         </View>
 
         <SceneLoading scene='recommend' variant='default'>
-          {recommendError || recommendations.length === 0 ? (
+          {recommendError || displayRecommendations.length === 0 ? (
             <EmptyState
               icon='👗'
               title='暂无穿搭推荐'
@@ -144,7 +198,7 @@ const HomePage: React.FC = () => {
             />
           ) : (
             <View className={styles.recommendGrid}>
-              {recommendations.map((item) => (
+              {displayRecommendations.map((item) => (
                 <View className={styles.recommendItem} key={item.id}>
                   <OutfitCard data={item} type='recommend' onClick={() => handleCardClick(item)} />
                 </View>
@@ -153,6 +207,12 @@ const HomePage: React.FC = () => {
           )}
         </SceneLoading>
       </View>
+
+      <CityPicker
+        visible={cityPickerVisible}
+        onClose={() => setCityPickerVisible(false)}
+        onSelect={handleCitySelect}
+      />
     </ScrollView>
   );
 };
