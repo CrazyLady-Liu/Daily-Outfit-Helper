@@ -8,16 +8,19 @@ interface OutfitCardProps {
   data: OutfitRecommend | OutfitPhoto;
   type?: 'recommend' | 'photo';
   onClick?: () => void;
+  imageRatio?: number;
 }
 
-const OutfitCard: React.FC<OutfitCardProps> = ({ data, type = 'recommend', onClick }) => {
+const OutfitCard: React.FC<OutfitCardProps> = ({ data, type = 'recommend', onClick, imageRatio }) => {
   const isPhoto = type === 'photo';
   const photoData = data as OutfitPhoto;
   const recommendData = data as OutfitRecommend;
 
+  const imageWrapperStyle = imageRatio ? { paddingTop: `${imageRatio * 100}%` } : undefined;
+
   return (
     <View className={styles.card} onClick={onClick}>
-      <View className={styles.imageWrapper}>
+      <View className={styles.imageWrapper} style={imageWrapperStyle}>
         <Image
           className={styles.image}
           src={data.image}

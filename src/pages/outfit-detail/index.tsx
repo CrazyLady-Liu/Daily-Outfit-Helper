@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { View, Text, Image, ScrollView } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
 import Loading from '@/components/Loading';
@@ -8,19 +8,19 @@ import { OutfitDetail } from '@/types';
 import { fetchOutfitDetail } from '@/services/outfitService';
 import styles from './index.module.scss';
 
+type EmptyType = 'not-found' | 'offline' | null;
+
 const OutfitDetailPage: React.FC = () => {
   const router = useRouter();
   const { withLoading, isLoading } = useGlobalLoading();
   const [outfitDetail, setOutfitDetail] = useState<OutfitDetail | null>(null);
-  const [isNotFound, setIsNotFound] = useState(false);
-  const [isOffline, setIsOffline] = useState(false);
+  const [emptyType, setEmptyType] = useState<EmptyType>(null);
 
   const outfitId = router.params.outfitId as string;
 
   const loadOutfitDetail = useCallback(async (id: string) => {
     console.log('[OutfitDetail] Loading detail for outfitId:', id);
-    setIsNotFound(false);
-    setIsOffline(false);
+    setEmptyType(null);
     setOutfitDetail(null);
 
     try {
@@ -28,13 +28,13 @@ const OutfitDetailPage: React.FC = () => {
 
       if (!detail) {
         console.log('[OutfitDetail] Outfit not found:', id);
-        setIsNotFound(true);
+        setEmptyType('not-found');
         return;
       }
 
       if (detail.isOffline) {
         console.log('[OutfitDetail] Outfit is offline:', id);
-        setIsOffline(true);
+        setEmptyType('offline');
         return;
       }
 
@@ -42,14 +42,14 @@ const OutfitDetailPage: React.FC = () => {
       setOutfitDetail(detail);
     } catch (error) {
       console.error('[OutfitDetail] Failed to load detail:', error);
-      setIsNotFound(true);
+      setEmptyType('not-found');
     }
   }, [withLoading]);
 
   useEffect(() => {
     if (!outfitId) {
       console.log('[OutfitDetail] No outfitId provided');
-      setIsNotFound(true);
+      setEmptyType('not-found');
       return;
     }
 
@@ -66,6 +66,25 @@ const OutfitDetailPage: React.FC = () => {
     }
   };
 
+  const handleGoRecommend = () => {
+    Taro.switchTab({ url: '/pages/home/index' });
+  };
+
+  const emptyStateProps = useMemo(() => {
+    if (emptyType === 'offline') {
+      return {
+        type: 'outfit-offline' as const,
+        onPrimaryButtonClick: handleBack,
+        onSecondaryButtonClick: handleGoRecommend
+      };
+    }
+    return {
+      type: 'outfit-not-found' as const,
+      onPrimaryButtonClick: handleBack,
+      onSecondaryButtonClick: handleRetry
+    };
+  }, [emptyType]);
+
   if (isLoading('outfit-detail')) {
     return (
       <View className={styles.loadingContainer}>
@@ -74,18 +93,10 @@ const OutfitDetailPage: React.FC = () => {
     );
   }
 
-  if (isNotFound || isOffline) {
+  if (emptyType) {
     return (
       <View className={styles.emptyState}>
-        <EmptyState
-          icon='👗'
-          title='穿搭不存在'
-          description={isOffline ? '该穿搭已下架，看看其他推荐吧~' : '抱歉，该穿搭不存在或已被删除'}
-          primaryButtonText='返回上一页'
-          secondaryButtonText={isNotFound ? '重新加载' : undefined}
-          onPrimaryButtonClick={handleBack}
-          onSecondaryButtonClick={isNotFound ? handleRetry : undefined}
-        />
+        <EmptyState {...emptyStateProps} />
       </View>
     );
   }
@@ -100,7 +111,9 @@ const OutfitDetailPage: React.FC = () => {
       '下装': '👖',
       '鞋履': '👟',
       '配饰': '👜',
-      '外套': '🧥'
+      '外套': '🧥',
+      '连衣裙': '👗',
+      '内搭': '👕'
     };
     return iconMap[category] || '👔';
   };

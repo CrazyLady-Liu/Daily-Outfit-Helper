@@ -6,6 +6,8 @@ import styles from './index.module.scss';
 export type EmptyStatePreset =
   | 'outfit-empty'
   | 'outfit-filter'
+  | 'outfit-not-found'
+  | 'outfit-offline'
   | 'score-empty'
   | 'weather-empty'
   | 'tag-empty'
@@ -39,6 +41,20 @@ const PRESET_CONFIG_MAP: Record<Exclude<EmptyStatePreset, 'custom'>, PresetConfi
     description: '试试其他标签，或者上传新的穿搭吧~',
     primaryButton: { text: '上传新穿搭' },
     secondaryButton: { text: '查看全部穿搭' }
+  },
+  'outfit-not-found': {
+    icon: '👗',
+    title: '穿搭不存在',
+    description: '抱歉，该穿搭不存在或已被删除，看看其他推荐吧~',
+    primaryButton: { text: '返回上一页' },
+    secondaryButton: { text: '重新加载' }
+  },
+  'outfit-offline': {
+    icon: '🚫',
+    title: '穿搭已下架',
+    description: '该穿搭已下架，快来看看其他精选穿搭吧~',
+    primaryButton: { text: '返回上一页' },
+    secondaryButton: { text: '去看推荐' }
   },
   'score-empty': {
     icon: '📊',

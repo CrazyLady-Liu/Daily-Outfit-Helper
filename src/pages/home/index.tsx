@@ -8,7 +8,7 @@ import OutfitCard from '@/components/OutfitCard';
 import CityPicker from '@/components/CityPicker';
 import { useGlobalLoading } from '@/hooks/useGlobalLoading';
 import { OutfitRecommend, CityInfo, WeatherData } from '@/types';
-import { mockRecommendations } from '@/data/outfits';
+import { mockRecommendations, generateStyledRecommendations } from '@/data/outfits';
 import { getOutfitTips } from '@/data/weather';
 import { useAppStore } from '@/store/useAppStore';
 import styles from './index.module.scss';
@@ -23,9 +23,10 @@ const HomePage: React.FC = () => {
   const initializedRef = useRef(false);
   const loadingLockRef = useRef(false);
 
-  const loadRecommendations = useCallback(async () => {
+  const loadRecommendations = useCallback(() => {
     setRecommendError(false);
-    setRecommendations(mockRecommendations);
+    const styledRecs = generateStyledRecommendations();
+    setRecommendations(styledRecs);
   }, []);
 
   const loadAllData = useCallback(async () => {
@@ -120,14 +121,20 @@ const HomePage: React.FC = () => {
   );
 
   const getFilteredRecommendations = useCallback((weatherData: WeatherData | null): OutfitRecommend[] => {
-    if (!weatherData) return mockRecommendations;
+    const testItems = recommendations.filter((item) => item.style === '测试');
+    const normalItems = recommendations.filter((item) => item.style !== '测试');
+
+    if (!weatherData) {
+      return [...normalItems.slice(0, 10), ...testItems];
+    }
+
     const temp = weatherData.temperature;
     const weatherType = weatherData.weather;
-    return mockRecommendations.filter((item) => {
+    const filtered = normalItems.filter((item) => {
       const tempRange = item.temperatureRange.replace(/°/g, '').split('-').map(Number);
       if (tempRange.length === 2) {
         const [low, high] = tempRange;
-        if (temp < low - 3 || temp > high + 3) return false;
+        if (temp < low - 8 || temp > high + 8) return false;
       }
       if (
         (weatherType.includes('雨') && item.weatherType !== '晴' && !item.tags.includes('防晒')) ||
@@ -136,10 +143,46 @@ const HomePage: React.FC = () => {
         return true;
       }
       return item.weatherType === weatherType || item.weatherType === '多云';
-    }).slice(0, 6);
-  }, []);
+    });
+    return [...filtered.slice(0, 10), ...testItems];
+  }, [recommendations]);
 
   const displayRecommendations = weather ? getFilteredRecommendations(weather) : recommendations;
+
+  const getImageRatio = (index: number): number => {
+    const ratios = [1.5, 1.3, 1.7, 1.4, 1.6, 1.25, 1.55, 1.35, 1.65, 1.45];
+    return ratios[index % ratios.length];
+  };
+
+  const getWaterfallColumns = (items: OutfitRecommend[]): { left: OutfitRecommend[]; right: OutfitRecommend[] } => {
+    const left: OutfitRecommend[] = [];
+    const right: OutfitRecommend[] = [];
+    let leftHeight = 0;
+    let rightHeight = 0;
+
+    items.forEach((item, index) => {
+      const ratio = getImageRatio(index);
+      const cardHeight = 300 * ratio + 100;
+
+      if (leftHeight <= rightHeight) {
+        left.push(item);
+        leftHeight += cardHeight;
+      } else {
+        right.push(item);
+        rightHeight += cardHeight;
+      }
+    });
+
+    return { left, right };
+  };
+
+  const getImageRatioForItem = (item: OutfitRecommend): number => {
+    const items = displayRecommendations;
+    const index = items.findIndex((i) => i.id === item.id);
+    return getImageRatio(index >= 0 ? index : 0);
+  };
+
+  const waterfallColumns = getWaterfallColumns(displayRecommendations);
 
   return (
     <ScrollView
@@ -210,12 +253,31 @@ const HomePage: React.FC = () => {
               compact
             />
           ) : (
-            <View className={styles.recommendGrid}>
-              {displayRecommendations.map((item) => (
-                <View className={styles.recommendItem} key={item.id}>
-                  <OutfitCard data={item} type='recommend' onClick={() => handleCardClick(item)} />
-                </View>
-              ))}
+            <View className={styles.waterfallContainer}>
+              <View className={styles.waterfallColumn}>
+                {waterfallColumns.left.map((item, idx) => (
+                  <View className={styles.waterfallItem} key={item.id}>
+                    <OutfitCard
+                      data={item}
+                      type='recommend'
+                      imageRatio={getImageRatio(displayRecommendations.findIndex((i) => i.id === item.id))}
+                      onClick={() => handleCardClick(item)}
+                    />
+                  </View>
+                ))}
+              </View>
+              <View className={styles.waterfallColumn}>
+                {waterfallColumns.right.map((item) => (
+                  <View className={styles.waterfallItem} key={item.id}>
+                    <OutfitCard
+                      data={item}
+                      type='recommend'
+                      imageRatio={getImageRatio(displayRecommendations.findIndex((i) => i.id === item.id))}
+                      onClick={() => handleCardClick(item)}
+                    />
+                  </View>
+                ))}
+              </View>
             </View>
           )}
         </SceneLoading>
