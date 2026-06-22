@@ -152,14 +152,17 @@ const OutfitDetailPage: React.FC = () => {
           <View className={styles.section}>
             <Text className={styles.sectionTitle}>穿搭展示</Text>
             <ScrollView className={styles.imageGallery} scrollX>
-              {outfitDetail.images.map((image, index) => (
-                <Image
-                  key={index}
-                  className={styles.galleryImage}
-                  src={image}
-                  mode='aspectFill'
-                />
-              ))}
+              {outfitDetail.images.map((image, index) => {
+                const ratioClass = [styles.galleryImage3by4, styles.galleryImage4by5, styles.galleryImage2by3][index % 3];
+                return (
+                  <Image
+                    key={index}
+                    className={`${styles.galleryImage} ${ratioClass}`}
+                    src={image}
+                    mode='aspectFill'
+                  />
+                );
+              })}
             </ScrollView>
           </View>
         )}

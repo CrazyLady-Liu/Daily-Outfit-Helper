@@ -1,9 +1,11 @@
 import { OutfitDetail, OutfitItem } from '@/types';
-import { mockRecommendations } from '@/data/outfits';
-import { getOutfitImage } from '@/utils';
+import { mockRecommendations, generateStyledRecommendations } from '@/data/outfits';
+import { getStyledOutfitImage, resetImageSeeds, OutfitStyle } from '@/utils';
 
 export async function fetchOutfitDetail(outfitId: string): Promise<OutfitDetail | null> {
   await new Promise((resolve) => setTimeout(resolve, 800));
+
+  resetImageSeeds();
 
   if (outfitId === 'not-found-test') {
     return null;
@@ -14,7 +16,7 @@ export async function fetchOutfitDetail(outfitId: string): Promise<OutfitDetail 
       id: outfitId,
       title: '已下架穿搭示例',
       description: '该穿搭已下架',
-      coverImage: getOutfitImage(101, 600, 800),
+      coverImage: getStyledOutfitImage('休闲风', 100, 600, 800),
       images: [],
       temperatureRange: '20-28°',
       weatherType: '晴',
@@ -28,10 +30,13 @@ export async function fetchOutfitDetail(outfitId: string): Promise<OutfitDetail 
     };
   }
 
-  const recommend = mockRecommendations.find((item) => item.id === outfitId && item.id !== 'not-found-test' && item.id !== 'offline');
+  const styledRecs = generateStyledRecommendations();
+  const recommend = styledRecs.find((item) => item.id === outfitId && item.id !== 'not-found-test' && item.id !== 'offline');
   if (!recommend) {
     return null;
   }
+
+  const style = recommend.style as OutfitStyle;
 
   const detail: OutfitDetail = {
     id: recommend.id,
@@ -40,8 +45,8 @@ export async function fetchOutfitDetail(outfitId: string): Promise<OutfitDetail 
     coverImage: recommend.image,
     images: [
       recommend.image,
-      getOutfitImage(100 + parseInt(recommend.id) * 3, 600, 800),
-      getOutfitImage(150 + parseInt(recommend.id) * 2, 600, 800)
+      getStyledOutfitImage(style, 500 + parseInt(recommend.id || '0', 36), 600, 800),
+      getStyledOutfitImage(style, 600 + parseInt(recommend.id || '0', 36), 600, 800)
     ],
     temperatureRange: recommend.temperatureRange,
     weatherType: recommend.weatherType,

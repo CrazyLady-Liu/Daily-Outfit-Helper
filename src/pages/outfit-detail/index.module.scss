@@ -94,9 +94,21 @@
 
 .galleryImage {
   width: 300rpx;
-  height: 400rpx;
   border-radius: $radius-md;
   flex-shrink: 0;
+  object-fit: cover;
+}
+
+.galleryImage3by4 {
+  height: 400rpx;
+}
+
+.galleryImage4by5 {
+  height: 375rpx;
+}
+
+.galleryImage2by3 {
+  height: 450rpx;
 }
 
 .itemList {
