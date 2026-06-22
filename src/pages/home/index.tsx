@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
 
   const handleCardClick = (item: OutfitRecommend) => {
     console.log('[HomePage] Click recommend item:', item.id);
-    Taro.navigateTo({ url: '/pages/recommend-detail/index' });
+    Taro.navigateTo({ url: `/pages/outfit-detail/index?outfitId=${item.id}` });
   };
 
   const handleReloadWeather = useCallback(async () => {

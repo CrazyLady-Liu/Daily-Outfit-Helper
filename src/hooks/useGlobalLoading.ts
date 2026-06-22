@@ -5,6 +5,7 @@ export type LoadingScene =
   | 'recommend'
   | 'outfit-list'
   | 'outfit-upload'
+  | 'outfit-detail'
   | 'score-history'
   | 'score-calc'
   | 'tag-list'
@@ -21,6 +22,7 @@ export const DEFAULT_LOADING_TEXTS: Record<LoadingScene, string> = {
   recommend: '正在生成穿搭推荐...',
   'outfit-list': '加载穿搭记录...',
   'outfit-upload': '正在上传穿搭...',
+  'outfit-detail': '加载穿搭详情...',
   'score-history': '加载打分记录...',
   'score-calc': 'AI 正在分析你的穿搭...',
   'tag-list': '加载标签...',
@@ -50,6 +52,7 @@ const createInitialStates = (): Record<LoadingScene, boolean> => ({
   recommend: false,
   'outfit-list': false,
   'outfit-upload': false,
+  'outfit-detail': false,
   'score-history': false,
   'score-calc': false,
   'tag-list': false,

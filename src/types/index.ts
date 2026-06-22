@@ -43,6 +43,31 @@ export interface OutfitRecommend {
   style: string;
 }
 
+export interface OutfitItem {
+  id: string;
+  name: string;
+  category: string;
+  color: string;
+  image?: string;
+}
+
+export interface OutfitDetail {
+  id: string;
+  title: string;
+  description: string;
+  coverImage: string;
+  images: string[];
+  temperatureRange: string;
+  weatherType: string;
+  tags: string[];
+  style: string;
+  items: OutfitItem[];
+  occasion: string;
+  season: string;
+  isOffline?: boolean;
+  createdAt: string;
+}
+
 export interface OutfitPhoto {
   id: string;
   image: string;

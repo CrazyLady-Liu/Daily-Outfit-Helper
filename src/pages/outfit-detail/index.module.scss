@@ -2,11 +2,147 @@
 
 .page {
   min-height: 100vh;
+  background-color: $color-bg-page;
+}
+
+.loadingContainer {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: $page-padding;
+}
+
+.coverImage {
+  width: 100%;
+  height: 750rpx;
+  display: block;
+}
+
+.content {
+  padding: $spacing-lg;
+}
+
+.header {
+  margin-bottom: $spacing-lg;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  line-height: 1.4;
+}
+
+.description {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: $spacing-lg;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.metaBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-md;
+  background-color: rgba(255, 143, 163, 0.1);
+  border-radius: 999rpx;
+  font-size: $font-size-sm;
+  color: $color-primary;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.tag {
+  padding: $spacing-xs $spacing-md;
+  background-color: $color-bg-tag;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.section {
+  margin-top: $spacing-xl;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.imageGallery {
+  display: flex;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  padding-bottom: $spacing-sm;
+}
+
+.galleryImage {
+  width: 300rpx;
+  height: 400rpx;
+  border-radius: $radius-md;
+  flex-shrink: 0;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.itemCard {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md;
+  background-color: $color-bg-card;
+  border-radius: $radius-md;
+}
+
+.itemIcon {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: rgba(255, 143, 163, 0.1);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  margin-right: $spacing-md;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.itemMeta {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.emptyState {
+  min-height: 100vh;
 }
 
 .icon {
@@ -14,14 +150,14 @@
   margin-bottom: $spacing-lg;
 }
 
-.title {
+.emptyTitle {
   font-size: $font-size-xl;
   font-weight: $font-weight-semibold;
   color: $color-text-primary;
   margin-bottom: $spacing-sm;
 }
 
-.desc {
+.emptyDesc {
   font-size: $font-size-md;
   color: $color-text-tertiary;
   text-align: center;
